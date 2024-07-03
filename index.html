@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUST</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center">GUST Login</h2>
+
+    <div id="login-form" class="form-container">
+      <h3>Login</h3>
+      <div class="form-group">
+        <label for="login-email">Email address:</label>
+        <input type="email" class="form-control" id="login-email" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password:</label>
+        <input type="password" class="form-control" id="login-password" placeholder="Enter password">
+      </div>
+      <button id="login-btn" class="btn btn-primary">Login</button>
+    </div>
+
+    <div id="user-details" class="hidden">
+      <h3>Welcome, <span id="user-email"></span></h3>
+      <button id="logout-btn" class="btn btn-danger">Logout</button>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
