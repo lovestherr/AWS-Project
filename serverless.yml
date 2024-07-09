@@ -1,0 +1,59 @@
+org: estabraq
+service: aws-project
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: eu-west-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - "s3:*"
+            - "cognito-idp:*"
+            - "dynamodb:*"
+          Resource: "*"
+
+plugins: 
+  - serverless-offline
+  - serverless-plugin-include-dependencies
+  - serverless-plugin-common-excludes
+
+functions:
+  create_item:
+    handler: handler.create
+    events:
+      - http:
+          path: courses
+          method: post
+          cors: true
+  get_item:
+    handler: handler.get_item
+    events:
+      - http:
+          path: courses/{CourseID}
+          method: get
+          cors: true
+  list_items:
+    handler: handler.list_items
+    events:
+      - http:
+          path: courses
+          method: get
+          cors: true
+  delete_item:
+    handler: handler.delete_item
+    events:
+      - http:
+          path: courses/{CourseID}
+          method: delete
+          cors: true
+  update_item:
+    handler: handler.update
+    events:
+      - http:
+          path: courses/{CourseID}
+          method: put
+          cors: true
+
