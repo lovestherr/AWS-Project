@@ -216,7 +216,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-project/dev/1720523431079-2024-07-09T11:10:31.079Z/aws-project.zip"
+                "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
               },
               "Handler": "handler.create",
               "Runtime": "python3.9",
@@ -241,7 +241,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-project/dev/1720523431079-2024-07-09T11:10:31.079Z/aws-project.zip"
+                "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
               },
               "Handler": "handler.get_item",
               "Runtime": "python3.9",
@@ -266,7 +266,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-project/dev/1720523431079-2024-07-09T11:10:31.079Z/aws-project.zip"
+                "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
               },
               "Handler": "handler.list_items",
               "Runtime": "python3.9",
@@ -291,7 +291,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-project/dev/1720523431079-2024-07-09T11:10:31.079Z/aws-project.zip"
+                "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
               },
               "Handler": "handler.delete_item",
               "Runtime": "python3.9",
@@ -316,7 +316,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-project/dev/1720523431079-2024-07-09T11:10:31.079Z/aws-project.zip"
+                "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
               },
               "Handler": "handler.update",
               "Runtime": "python3.9",
@@ -334,54 +334,54 @@
               "UpdateUnderscoreitemLogGroup"
             ]
           },
-          "CreateUnderscoreitemLambdaVersionqqhtOoSfuNGQODk1VNkcHjBIokak6JXzuSU0Olc2U": {
+          "CreateUnderscoreitemLambdaVersionIn3kWnvJiRwmBxVXdbCpnEbI7MQFxXqvTqVYg4Ng": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateUnderscoreitemLambdaFunction"
               },
-              "CodeSha256": "FpRgDlviZq5we5kZKlz/Rw+yJ2qFJr/We68XOi96itE="
+              "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
             }
           },
-          "GetUnderscoreitemLambdaVersionffHxWH9V7eNGdte2DYgUhjuKfcWsB95QU3cinDULg": {
+          "GetUnderscoreitemLambdaVersionk6g5BhdeMZBk63TtNEDAae5eyYdL51n72tw7tIOKqfg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUnderscoreitemLambdaFunction"
               },
-              "CodeSha256": "FpRgDlviZq5we5kZKlz/Rw+yJ2qFJr/We68XOi96itE="
+              "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
             }
           },
-          "ListUnderscoreitemsLambdaVersionbtVZHoBUOKq0CS6iYSGLefMsZcx32XNjbMn3bcPk": {
+          "ListUnderscoreitemsLambdaVersionx1U4Sb2K5yoZAIbb6qzFKiqyzTXnzEt5U4jao66Ao": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ListUnderscoreitemsLambdaFunction"
               },
-              "CodeSha256": "FpRgDlviZq5we5kZKlz/Rw+yJ2qFJr/We68XOi96itE="
+              "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
             }
           },
-          "DeleteUnderscoreitemLambdaVersionidz6rn9dwLCFejlkcaHAycVQJ9kqNfuiOQl4M624af0": {
+          "DeleteUnderscoreitemLambdaVersionXI9lfeAfEhas2QJDI2qLwtktA0PuiDTpH84vUsTpNM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteUnderscoreitemLambdaFunction"
               },
-              "CodeSha256": "FpRgDlviZq5we5kZKlz/Rw+yJ2qFJr/We68XOi96itE="
+              "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
             }
           },
-          "UpdateUnderscoreitemLambdaVersionbHrK6ngoFbFaMgioarDRECA7amfd34SkyCMqT9dM": {
+          "UpdateUnderscoreitemLambdaVersionFnMtPSItHlf1HwfwTV5MaiQDBMAt416Dp6nWN0dMMI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateUnderscoreitemLambdaFunction"
               },
-              "CodeSha256": "FpRgDlviZq5we5kZKlz/Rw+yJ2qFJr/We68XOi96itE="
+              "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
             }
           },
           "ApiGatewayRestApi": {
@@ -743,7 +743,7 @@
               "UpdateUnderscoreitemLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1720523424321": {
+          "ApiGatewayDeployment1720525486071": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -959,7 +959,7 @@
           "CreateUnderscoreitemLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateUnderscoreitemLambdaVersionqqhtOoSfuNGQODk1VNkcHjBIokak6JXzuSU0Olc2U"
+              "Ref": "CreateUnderscoreitemLambdaVersionIn3kWnvJiRwmBxVXdbCpnEbI7MQFxXqvTqVYg4Ng"
             },
             "Export": {
               "Name": "sls-aws-project-dev-CreateUnderscoreitemLambdaFunctionQualifiedArn"
@@ -968,7 +968,7 @@
           "GetUnderscoreitemLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUnderscoreitemLambdaVersionffHxWH9V7eNGdte2DYgUhjuKfcWsB95QU3cinDULg"
+              "Ref": "GetUnderscoreitemLambdaVersionk6g5BhdeMZBk63TtNEDAae5eyYdL51n72tw7tIOKqfg"
             },
             "Export": {
               "Name": "sls-aws-project-dev-GetUnderscoreitemLambdaFunctionQualifiedArn"
@@ -977,7 +977,7 @@
           "ListUnderscoreitemsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ListUnderscoreitemsLambdaVersionbtVZHoBUOKq0CS6iYSGLefMsZcx32XNjbMn3bcPk"
+              "Ref": "ListUnderscoreitemsLambdaVersionx1U4Sb2K5yoZAIbb6qzFKiqyzTXnzEt5U4jao66Ao"
             },
             "Export": {
               "Name": "sls-aws-project-dev-ListUnderscoreitemsLambdaFunctionQualifiedArn"
@@ -986,7 +986,7 @@
           "DeleteUnderscoreitemLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteUnderscoreitemLambdaVersionidz6rn9dwLCFejlkcaHAycVQJ9kqNfuiOQl4M624af0"
+              "Ref": "DeleteUnderscoreitemLambdaVersionXI9lfeAfEhas2QJDI2qLwtktA0PuiDTpH84vUsTpNM"
             },
             "Export": {
               "Name": "sls-aws-project-dev-DeleteUnderscoreitemLambdaFunctionQualifiedArn"
@@ -995,7 +995,7 @@
           "UpdateUnderscoreitemLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateUnderscoreitemLambdaVersionbHrK6ngoFbFaMgioarDRECA7amfd34SkyCMqT9dM"
+              "Ref": "UpdateUnderscoreitemLambdaVersionFnMtPSItHlf1HwfwTV5MaiQDBMAt416Dp6nWN0dMMI"
             },
             "Export": {
               "Name": "sls-aws-project-dev-UpdateUnderscoreitemLambdaFunctionQualifiedArn"
@@ -1154,7 +1154,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "CreateUnderscoreitemLambdaVersionqqhtOoSfuNGQODk1VNkcHjBIokak6JXzuSU0Olc2U"
+        "versionLogicalId": "CreateUnderscoreitemLambdaVersionIn3kWnvJiRwmBxVXdbCpnEbI7MQFxXqvTqVYg4Ng"
       },
       "get_item": {
         "handler": "handler.get_item",
@@ -1190,7 +1190,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "GetUnderscoreitemLambdaVersionffHxWH9V7eNGdte2DYgUhjuKfcWsB95QU3cinDULg"
+        "versionLogicalId": "GetUnderscoreitemLambdaVersionk6g5BhdeMZBk63TtNEDAae5eyYdL51n72tw7tIOKqfg"
       },
       "list_items": {
         "handler": "handler.list_items",
@@ -1226,7 +1226,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "ListUnderscoreitemsLambdaVersionbtVZHoBUOKq0CS6iYSGLefMsZcx32XNjbMn3bcPk"
+        "versionLogicalId": "ListUnderscoreitemsLambdaVersionx1U4Sb2K5yoZAIbb6qzFKiqyzTXnzEt5U4jao66Ao"
       },
       "delete_item": {
         "handler": "handler.delete_item",
@@ -1262,7 +1262,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "DeleteUnderscoreitemLambdaVersionidz6rn9dwLCFejlkcaHAycVQJ9kqNfuiOQl4M624af0"
+        "versionLogicalId": "DeleteUnderscoreitemLambdaVersionXI9lfeAfEhas2QJDI2qLwtktA0PuiDTpH84vUsTpNM"
       },
       "update_item": {
         "handler": "handler.update",
@@ -1298,7 +1298,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "UpdateUnderscoreitemLambdaVersionbHrK6ngoFbFaMgioarDRECA7amfd34SkyCMqT9dM"
+        "versionLogicalId": "UpdateUnderscoreitemLambdaVersionFnMtPSItHlf1HwfwTV5MaiQDBMAt416Dp6nWN0dMMI"
       }
     },
     "configValidationMode": "warn",
@@ -1320,10 +1320,10 @@
     "org": "estabraq",
     "orgId": null,
     "layers": {},
-    "artifact": "C:\\Users\\estat\\OneDrive\\Desktop\\AWS Project\\.serverless\\aws-project.zip"
+    "artifact": "C:\\Users\\estat\\OneDrive\\Desktop\\awsproject\\.serverless\\aws-project.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-project/dev/1720523431079-2024-07-09T11:10:31.079Z",
+    "artifactDirectoryName": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z",
     "artifact": "aws-project.zip"
   }
 }

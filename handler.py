@@ -3,7 +3,7 @@ import boto3
 from boto3.dynamodb.conditions import Key
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('http-crud-tutorial-items')
+table = dynamodb.Table('Course')
 
 def create(event, context):
     # Parse the input
