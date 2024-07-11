@@ -88,3 +88,40 @@ def update(event, context):
         'statusCode': 200,
         'body': json.dumps({'message': 'Item updated successfully', 'updatedAttributes': response.get('Attributes')})
     }
+
+def login(event, context):
+    client = boto3.client('cognito-idp')
+    
+    # Parse the body from the event
+    body = json.loads(event['body'])
+    username = body['email']
+    password = body['password']
+    
+    try:
+        response = client.initiate_auth(
+            ClientId="4p6rtblq17qu1gotnkn4n96mlp",
+            AuthFlow='USER_PASSWORD_AUTH',
+            AuthParameters={
+                'USERNAME': username,
+                'PASSWORD': password
+            }
+        )
+        return {
+            'statusCode': 200,
+            'body': json.dumps(response)
+        }
+    except client.exceptions.NotAuthorizedException as e:
+        return {
+            'statusCode': 401,
+            'body': json.dumps({'error': 'Incorrect username or password {}, {}, {}'.format(username, password, e)})
+        }
+    except client.exceptions.UserNotFoundException:
+        return {
+            'statusCode': 404,
+            'body': json.dumps({'error': 'User does not exist'})
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'error': str(e)})
+        }

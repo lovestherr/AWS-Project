@@ -56,4 +56,11 @@ functions:
           path: courses/{CourseID}
           method: put
           cors: true
+  login:
+    handler: handler.login
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
 
