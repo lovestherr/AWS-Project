@@ -1,13 +1,13 @@
 {
-  "C:\\Users\\estat\\OneDrive\\Desktop\\awsproject": {
+  "C:\\Users\\ASUS\\Desktop\\projectAWS\\AWS-Project": {
     "versionSfCore": null,
-    "versionFramework": "4.1.11",
+    "versionFramework": "4.1.12",
     "isWithinCompose": false,
     "isCompose": false,
     "composeOrgName": null,
     "composeResolverProviders": {},
     "composeServiceName": null,
-    "servicePath": "C:\\Users\\estat\\OneDrive\\Desktop\\awsproject",
+    "servicePath": "C:\\Users\\ASUS\\Desktop\\projectAWS\\AWS-Project",
     "serviceConfigFileName": "serverless.yml",
     "service": {
       "org": "estabraq",
@@ -136,6 +136,12 @@
                 "LogGroupName": "/aws/lambda/aws-project-dev-update_item"
               }
             },
+            "LoginLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/aws-project-dev-login"
+              }
+            },
             "IamRoleLambdaExecution": {
               "Type": "AWS::IAM::Role",
               "Properties": {
@@ -230,7 +236,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1720726938465-2024-07-11T19:42:18.465Z/aws-project.zip"
                 },
                 "Handler": "handler.create",
                 "Runtime": "python3.9",
@@ -255,7 +261,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1720726938465-2024-07-11T19:42:18.465Z/aws-project.zip"
                 },
                 "Handler": "handler.get_item",
                 "Runtime": "python3.9",
@@ -280,7 +286,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1720726938465-2024-07-11T19:42:18.465Z/aws-project.zip"
                 },
                 "Handler": "handler.list_items",
                 "Runtime": "python3.9",
@@ -305,7 +311,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1720726938465-2024-07-11T19:42:18.465Z/aws-project.zip"
                 },
                 "Handler": "handler.delete_item",
                 "Runtime": "python3.9",
@@ -330,7 +336,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1720525494320-2024-07-09T11:44:54.320Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1720726938465-2024-07-11T19:42:18.465Z/aws-project.zip"
                 },
                 "Handler": "handler.update",
                 "Runtime": "python3.9",
@@ -348,54 +354,89 @@
                 "UpdateUnderscoreitemLogGroup"
               ]
             },
-            "CreateUnderscoreitemLambdaVersionIn3kWnvJiRwmBxVXdbCpnEbI7MQFxXqvTqVYg4Ng": {
+            "LoginLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": {
+                    "Ref": "ServerlessDeploymentBucket"
+                  },
+                  "S3Key": "serverless/aws-project/dev/1720726938465-2024-07-11T19:42:18.465Z/aws-project.zip"
+                },
+                "Handler": "handler.login",
+                "Runtime": "python3.9",
+                "FunctionName": "aws-project-dev-login",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "LoginLogGroup"
+              ]
+            },
+            "CreateUnderscoreitemLambdaVersionGtIf0rX2CiJexYQLd680YT2dvDnL9YKCnXDmddtU": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "CreateUnderscoreitemLambdaFunction"
                 },
-                "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
+                "CodeSha256": "Krf9fY4fHrWPF3hubFFTTkV3yGG21cTbcj2I19rjupo="
               }
             },
-            "GetUnderscoreitemLambdaVersionk6g5BhdeMZBk63TtNEDAae5eyYdL51n72tw7tIOKqfg": {
+            "GetUnderscoreitemLambdaVersionSdVtUQLxktX5noJbkZ391Qpin0CASM4aVqxEMTlH794": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetUnderscoreitemLambdaFunction"
                 },
-                "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
+                "CodeSha256": "Krf9fY4fHrWPF3hubFFTTkV3yGG21cTbcj2I19rjupo="
               }
             },
-            "ListUnderscoreitemsLambdaVersionx1U4Sb2K5yoZAIbb6qzFKiqyzTXnzEt5U4jao66Ao": {
+            "ListUnderscoreitemsLambdaVersion17nesaEHB9x4s3MILGxNN8NZbhEtwhrbxWaqOCPsRbs": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ListUnderscoreitemsLambdaFunction"
                 },
-                "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
+                "CodeSha256": "Krf9fY4fHrWPF3hubFFTTkV3yGG21cTbcj2I19rjupo="
               }
             },
-            "DeleteUnderscoreitemLambdaVersionXI9lfeAfEhas2QJDI2qLwtktA0PuiDTpH84vUsTpNM": {
+            "DeleteUnderscoreitemLambdaVersionZMMc0mek6NuS03mrzsk0IfoZQ1NH9OOi2ZYHfAVeM": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "DeleteUnderscoreitemLambdaFunction"
                 },
-                "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
+                "CodeSha256": "Krf9fY4fHrWPF3hubFFTTkV3yGG21cTbcj2I19rjupo="
               }
             },
-            "UpdateUnderscoreitemLambdaVersionFnMtPSItHlf1HwfwTV5MaiQDBMAt416Dp6nWN0dMMI": {
+            "UpdateUnderscoreitemLambdaVersionWRvVU3h2Z0efAL6XtrRnEr9Md7mgz7YhmSeyBc6AgIc": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "UpdateUnderscoreitemLambdaFunction"
                 },
-                "CodeSha256": "ZOyRGtv3PnG4mee7v3GtKx20FFLq9s6jFOGZpJD2pqc="
+                "CodeSha256": "Krf9fY4fHrWPF3hubFFTTkV3yGG21cTbcj2I19rjupo="
+              }
+            },
+            "LoginLambdaVersionnBuIoC1iKSlPKx2gFLcLEyQhipeVkHbo65IVG3TQLAY": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "LoginLambdaFunction"
+                },
+                "CodeSha256": "Krf9fY4fHrWPF3hubFFTTkV3yGG21cTbcj2I19rjupo="
               }
             },
             "ApiGatewayRestApi": {
@@ -432,6 +473,21 @@
                   "Ref": "ApiGatewayResourceCourses"
                 },
                 "PathPart": "{CourseID}",
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
+            "ApiGatewayResourceLogin": {
+              "Type": "AWS::ApiGateway::Resource",
+              "Properties": {
+                "ParentId": {
+                  "Fn::GetAtt": [
+                    "ApiGatewayRestApi",
+                    "RootResourceId"
+                  ]
+                },
+                "PathPart": "login",
                 "RestApiId": {
                   "Ref": "ApiGatewayRestApi"
                 }
@@ -521,6 +577,51 @@
                 },
                 "ResourceId": {
                   "Ref": "ApiGatewayResourceCoursesCourseidVar"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
+            "ApiGatewayMethodLoginOptions": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "AuthorizationType": "NONE",
+                "HttpMethod": "OPTIONS",
+                "MethodResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": true,
+                      "method.response.header.Access-Control-Allow-Headers": true,
+                      "method.response.header.Access-Control-Allow-Methods": true
+                    },
+                    "ResponseModels": {}
+                  }
+                ],
+                "RequestParameters": {},
+                "Integration": {
+                  "Type": "MOCK",
+                  "RequestTemplates": {
+                    "application/json": "{statusCode:200}"
+                  },
+                  "ContentHandling": "CONVERT_TO_TEXT",
+                  "IntegrationResponses": [
+                    {
+                      "StatusCode": "200",
+                      "ResponseParameters": {
+                        "method.response.header.Access-Control-Allow-Origin": "'*'",
+                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                      },
+                      "ResponseTemplates": {
+                        "application/json": ""
+                      }
+                    }
+                  ]
+                },
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceLogin"
                 },
                 "RestApiId": {
                   "Ref": "ApiGatewayRestApi"
@@ -757,7 +858,53 @@
                 "UpdateUnderscoreitemLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1720525486071": {
+            "ApiGatewayMethodLoginPost": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "HttpMethod": "POST",
+                "RequestParameters": {},
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceLogin"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                },
+                "ApiKeyRequired": "<REDACTED>",
+                "AuthorizationType": "NONE",
+                "Integration": {
+                  "IntegrationHttpMethod": "POST",
+                  "Type": "AWS_PROXY",
+                  "Uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":apigateway:",
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":lambda:path/2015-03-31/functions/",
+                        {
+                          "Fn::GetAtt": [
+                            "LoginLambdaFunction",
+                            "Arn"
+                          ]
+                        },
+                        "/invocations"
+                      ]
+                    ]
+                  }
+                },
+                "MethodResponses": []
+              },
+              "DependsOn": [
+                "LoginLambdaPermissionApiGateway"
+              ]
+            },
+            "ApiGatewayDeployment1720726937269": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -768,11 +915,13 @@
               "DependsOn": [
                 "ApiGatewayMethodCoursesOptions",
                 "ApiGatewayMethodCoursesCourseidVarOptions",
+                "ApiGatewayMethodLoginOptions",
                 "ApiGatewayMethodCoursesPost",
                 "ApiGatewayMethodCoursesCourseidVarGet",
                 "ApiGatewayMethodCoursesGet",
                 "ApiGatewayMethodCoursesCourseidVarDelete",
-                "ApiGatewayMethodCoursesCourseidVarPut"
+                "ApiGatewayMethodCoursesCourseidVarPut",
+                "ApiGatewayMethodLoginPost"
               ]
             },
             "CreateUnderscoreitemLambdaPermissionApiGateway": {
@@ -959,6 +1108,43 @@
                   ]
                 }
               }
+            },
+            "LoginLambdaPermissionApiGateway": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "LoginLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "/*/*"
+                    ]
+                  ]
+                }
+              }
             }
           },
           "Outputs": {
@@ -973,7 +1159,7 @@
             "CreateUnderscoreitemLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "CreateUnderscoreitemLambdaVersionIn3kWnvJiRwmBxVXdbCpnEbI7MQFxXqvTqVYg4Ng"
+                "Ref": "CreateUnderscoreitemLambdaVersionGtIf0rX2CiJexYQLd680YT2dvDnL9YKCnXDmddtU"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-CreateUnderscoreitemLambdaFunctionQualifiedArn"
@@ -982,7 +1168,7 @@
             "GetUnderscoreitemLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetUnderscoreitemLambdaVersionk6g5BhdeMZBk63TtNEDAae5eyYdL51n72tw7tIOKqfg"
+                "Ref": "GetUnderscoreitemLambdaVersionSdVtUQLxktX5noJbkZ391Qpin0CASM4aVqxEMTlH794"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-GetUnderscoreitemLambdaFunctionQualifiedArn"
@@ -991,7 +1177,7 @@
             "ListUnderscoreitemsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ListUnderscoreitemsLambdaVersionx1U4Sb2K5yoZAIbb6qzFKiqyzTXnzEt5U4jao66Ao"
+                "Ref": "ListUnderscoreitemsLambdaVersion17nesaEHB9x4s3MILGxNN8NZbhEtwhrbxWaqOCPsRbs"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-ListUnderscoreitemsLambdaFunctionQualifiedArn"
@@ -1000,7 +1186,7 @@
             "DeleteUnderscoreitemLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "DeleteUnderscoreitemLambdaVersionXI9lfeAfEhas2QJDI2qLwtktA0PuiDTpH84vUsTpNM"
+                "Ref": "DeleteUnderscoreitemLambdaVersionZMMc0mek6NuS03mrzsk0IfoZQ1NH9OOi2ZYHfAVeM"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-DeleteUnderscoreitemLambdaFunctionQualifiedArn"
@@ -1009,10 +1195,19 @@
             "UpdateUnderscoreitemLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "UpdateUnderscoreitemLambdaVersionFnMtPSItHlf1HwfwTV5MaiQDBMAt416Dp6nWN0dMMI"
+                "Ref": "UpdateUnderscoreitemLambdaVersionWRvVU3h2Z0efAL6XtrRnEr9Md7mgz7YhmSeyBc6AgIc"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-UpdateUnderscoreitemLambdaFunctionQualifiedArn"
+              }
+            },
+            "LoginLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "LoginLambdaVersionnBuIoC1iKSlPKx2gFLcLEyQhipeVkHbo65IVG3TQLAY"
+              },
+              "Export": {
+                "Name": "sls-aws-project-dev-LoginLambdaFunctionQualifiedArn"
               }
             },
             "ServiceEndpoint": {
@@ -1167,7 +1362,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "CreateUnderscoreitemLambdaVersionIn3kWnvJiRwmBxVXdbCpnEbI7MQFxXqvTqVYg4Ng"
+          "versionLogicalId": "CreateUnderscoreitemLambdaVersionGtIf0rX2CiJexYQLd680YT2dvDnL9YKCnXDmddtU"
         },
         "get_item": {
           "handler": "handler.get_item",
@@ -1203,7 +1398,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "GetUnderscoreitemLambdaVersionk6g5BhdeMZBk63TtNEDAae5eyYdL51n72tw7tIOKqfg"
+          "versionLogicalId": "GetUnderscoreitemLambdaVersionSdVtUQLxktX5noJbkZ391Qpin0CASM4aVqxEMTlH794"
         },
         "list_items": {
           "handler": "handler.list_items",
@@ -1239,7 +1434,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "ListUnderscoreitemsLambdaVersionx1U4Sb2K5yoZAIbb6qzFKiqyzTXnzEt5U4jao66Ao"
+          "versionLogicalId": "ListUnderscoreitemsLambdaVersion17nesaEHB9x4s3MILGxNN8NZbhEtwhrbxWaqOCPsRbs"
         },
         "delete_item": {
           "handler": "handler.delete_item",
@@ -1275,7 +1470,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "DeleteUnderscoreitemLambdaVersionXI9lfeAfEhas2QJDI2qLwtktA0PuiDTpH84vUsTpNM"
+          "versionLogicalId": "DeleteUnderscoreitemLambdaVersionZMMc0mek6NuS03mrzsk0IfoZQ1NH9OOi2ZYHfAVeM"
         },
         "update_item": {
           "handler": "handler.update",
@@ -1311,23 +1506,59 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "UpdateUnderscoreitemLambdaVersionFnMtPSItHlf1HwfwTV5MaiQDBMAt416Dp6nWN0dMMI"
+          "versionLogicalId": "UpdateUnderscoreitemLambdaVersionWRvVU3h2Z0efAL6XtrRnEr9Md7mgz7YhmSeyBc6AgIc"
+        },
+        "login": {
+          "handler": "handler.login",
+          "events": [
+            {
+              "http": {
+                "path": "login",
+                "method": "post",
+                "cors": {
+                  "origin": "*",
+                  "methods": [
+                    "OPTIONS",
+                    "POST"
+                  ],
+                  "headers": [
+                    "Content-Type",
+                    "X-Amz-Date",
+                    "Authorization",
+                    "X-Api-Key",
+                    "X-Amz-Security-Token",
+                    "X-Amz-User-Agent",
+                    "X-Amzn-Trace-Id"
+                  ],
+                  "allowCredentials": "<REDACTED>"
+                },
+                "integration": "AWS_PROXY"
+              }
+            }
+          ],
+          "name": "aws-project-dev-login",
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "python3.9",
+          "vpc": {},
+          "versionLogicalId": "LoginLambdaVersionnBuIoC1iKSlPKx2gFLcLEyQhipeVkHbo65IVG3TQLAY"
         }
       }
     },
-    "serviceRawFile": "org: estabraq\r\nservice: aws-project\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.9\r\n  region: eu-west-1\r\n  iam:\r\n    role:\r\n      statements:\r\n        - Effect: Allow\r\n          Action:\r\n            - \"s3:*\"\r\n            - \"cognito-idp:*\"\r\n            - \"dynamodb:*\"\r\n          Resource: \"*\"\r\n\r\nplugins: \r\n  - serverless-offline\r\n  - serverless-plugin-include-dependencies\r\n  - serverless-plugin-common-excludes\r\n\r\nfunctions:\r\n  create_item:\r\n    handler: handler.create\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: post\r\n          cors: true\r\n  get_item:\r\n    handler: handler.get_item\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: get\r\n          cors: true\r\n  list_items:\r\n    handler: handler.list_items\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: get\r\n          cors: true\r\n  delete_item:\r\n    handler: handler.delete_item\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: delete\r\n          cors: true\r\n  update_item:\r\n    handler: handler.update\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: put\r\n          cors: true\r\n\r\n",
+    "serviceRawFile": "org: estabraq\r\nservice: aws-project\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.9\r\n  region: eu-west-1\r\n  iam:\r\n    role:\r\n      statements:\r\n        - Effect: Allow\r\n          Action:\r\n            - \"s3:*\"\r\n            - \"cognito-idp:*\"\r\n            - \"dynamodb:*\"\r\n          Resource: \"*\"\r\n\r\nplugins: \r\n  - serverless-offline\r\n  - serverless-plugin-include-dependencies\r\n  - serverless-plugin-common-excludes\r\n\r\nfunctions:\r\n  create_item:\r\n    handler: handler.create\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: post\r\n          cors: true\r\n  get_item:\r\n    handler: handler.get_item\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: get\r\n          cors: true\r\n  list_items:\r\n    handler: handler.list_items\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: get\r\n          cors: true\r\n  delete_item:\r\n    handler: handler.delete_item\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: delete\r\n          cors: true\r\n  update_item:\r\n    handler: handler.update\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: put\r\n          cors: true\r\n  login:\r\n    handler: handler.login\r\n    events:\r\n      - http:\r\n          path: login\r\n          method: post\r\n          cors: true\r\n\r\n",
     "command": [
       "deploy"
     ],
     "options": {},
     "error": null,
     "params": {},
-    "machineId": "993c0a0f18aef0224feca315917ee67f",
+    "machineId": "cf39a71a5137d687cd715aebab4b226e",
     "accessKeyV2": "<REDACTED>",
     "accessKeyV1": "<REDACTED>",
     "orgId": "603e8ef9-e446-4469-aabc-41b2d7e27a74",
     "orgName": "estabraq",
-    "userId": "pmMHKQg6ZdYrC7M4FX",
+    "userId": "VzvLkQ7M4kpqR2yYXY",
     "dashboard": {
       "isEnabledForService": false,
       "requiredAuthentication": false,
@@ -1337,47 +1568,53 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "userName": "estabraq",
+    "userName": "gusts",
     "subscription": null,
-    "userEmail": "estabraqalta@gmail.com",
+    "userEmail": "yousifelhagar@gmail.com",
     "serviceProviderAwsCredentials": "<REDACTED>",
     "serviceProviderAwsAccountId": "767397751756",
-    "versionSf": "4.1.11",
+    "versionSf": "4.1.12",
     "serviceProviderAwsCfStackName": "aws-project-dev",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-west-1:767397751756:stack/aws-project-dev/d83fb8e0-3de3-11ef-ae5e-0649844ca977",
     "serviceProviderAwsCfStackCreated": "2024-07-09T11:10:26.737Z",
-    "serviceProviderAwsCfStackUpdated": "2024-07-09T11:45:06.528Z",
+    "serviceProviderAwsCfStackUpdated": "2024-07-11T19:42:30.774Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "GetUnderscoreitemLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_item:3",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_item:16",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-GetUnderscoreitemLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ListUnderscoreitemsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-list_items:2",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-list_items:15",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-ListUnderscoreitemsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "UpdateUnderscoreitemLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-update_item:3",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-update_item:16",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-UpdateUnderscoreitemLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "CreateUnderscoreitemLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-create_item:3",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-create_item:16",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-CreateUnderscoreitemLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "DeleteUnderscoreitemLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-delete_item:3",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-delete_item:16",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-DeleteUnderscoreitemLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "LoginLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-login:15",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-aws-project-dev-LoginLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ServiceEndpoint",
