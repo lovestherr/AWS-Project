@@ -56,4 +56,26 @@ functions:
           path: courses/{CourseID}
           method: put
           cors: true
+  login:
+    handler: handler.login
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
+  get_enrolledCourses:
+    handler: handler.get_enrolledCourses
+    events:
+      - http:
+          path: get_enrolledCourses
+          method: get
+          cors: true
+  get_userDetails:
+    handler: handler.get_user_details
+    events:
+      - http:
+          path: get_userDetails
+          method: get
+          cors: true
+        
 
