@@ -21,39 +21,17 @@ plugins:
   - serverless-plugin-common-excludes
 
 functions:
-  create_item:
+  create:
     handler: handler.create
     events:
       - http:
           path: courses
           method: post
           cors: true
-  get_item:
-    handler: handler.get_item
+  upload_file:
+    handler: handler.create  # Since file upload is part of the create function
     events:
       - http:
-          path: courses/{CourseID}
-          method: get
+          path: files/upload
+          method: post
           cors: true
-  list_items:
-    handler: handler.list_items
-    events:
-      - http:
-          path: courses
-          method: get
-          cors: true
-  delete_item:
-    handler: handler.delete_item
-    events:
-      - http:
-          path: courses/{CourseID}
-          method: delete
-          cors: true
-  update_item:
-    handler: handler.update
-    events:
-      - http:
-          path: courses/{CourseID}
-          method: put
-          cors: true
-
