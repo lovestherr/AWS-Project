@@ -110,6 +110,36 @@
               "LogGroupName": "/aws/lambda/aws-project-dev-upload_file"
             }
           },
+          "GetUnderscoreitemLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-project-dev-get_item"
+            }
+          },
+          "ListUnderscoreitemsLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-project-dev-list_items"
+            }
+          },
+          "LoginLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-project-dev-login"
+            }
+          },
+          "GetUnderscoreenrolledCoursesLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-project-dev-get_enrolledCourses"
+            }
+          },
+          "GetUnderscoreuserDetailsLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-project-dev-get_userDetails"
+            }
+          },
           "IamRoleLambdaExecution": {
             "Type": "AWS::IAM::Role",
             "Properties": {
@@ -198,7 +228,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-project/dev/1720978721866-2024-07-14T17:38:41.866Z/aws-project.zip"
+                "S3Key": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z/aws-project.zip"
               },
               "Handler": "handler.create",
               "Runtime": "python3.9",
@@ -223,7 +253,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-project/dev/1720978721866-2024-07-14T17:38:41.866Z/aws-project.zip"
+                "S3Key": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z/aws-project.zip"
               },
               "Handler": "handler.create",
               "Runtime": "python3.9",
@@ -241,24 +271,199 @@
               "UploadUnderscorefileLogGroup"
             ]
           },
-          "CreateLambdaVersionfsTEh0yIhc2s6fvkpWI51vaYOEe167eS6UC5xaTnERE": {
+          "GetUnderscoreitemLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z/aws-project.zip"
+              },
+              "Handler": "handler.get_item",
+              "Runtime": "python3.9",
+              "FunctionName": "aws-project-dev-get_item",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "GetUnderscoreitemLogGroup"
+            ]
+          },
+          "ListUnderscoreitemsLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z/aws-project.zip"
+              },
+              "Handler": "handler.list_items",
+              "Runtime": "python3.9",
+              "FunctionName": "aws-project-dev-list_items",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "ListUnderscoreitemsLogGroup"
+            ]
+          },
+          "LoginLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z/aws-project.zip"
+              },
+              "Handler": "handler.login",
+              "Runtime": "python3.9",
+              "FunctionName": "aws-project-dev-login",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "LoginLogGroup"
+            ]
+          },
+          "GetUnderscoreenrolledCoursesLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z/aws-project.zip"
+              },
+              "Handler": "handler.get_enrolledCourses",
+              "Runtime": "python3.9",
+              "FunctionName": "aws-project-dev-get_enrolledCourses",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "GetUnderscoreenrolledCoursesLogGroup"
+            ]
+          },
+          "GetUnderscoreuserDetailsLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z/aws-project.zip"
+              },
+              "Handler": "handler.get_user_details",
+              "Runtime": "python3.9",
+              "FunctionName": "aws-project-dev-get_userDetails",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "GetUnderscoreuserDetailsLogGroup"
+            ]
+          },
+          "CreateLambdaVersionSf976Ph3syFsObiXWd1e7SRwbRjfJrX2TVPWVVEBdko": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateLambdaFunction"
               },
-              "CodeSha256": "RCfr8D7xxfdKApSAh4xQwSjsfNRk+/JPQtVFFg/YrfM="
+              "CodeSha256": "o5hfk39yNkBzYsHZCM0R54o/G13n8um3qX70oXAVzk8="
             }
           },
-          "UploadUnderscorefileLambdaVersionZrmJrrCrq4c1vBVhjWN5VX0d8AMt0hmikdZM0vqRjF4": {
+          "UploadUnderscorefileLambdaVersionjpXCDLtadOJzna84aPp8PYPBpBXGpQ2MXYcyHwQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UploadUnderscorefileLambdaFunction"
               },
-              "CodeSha256": "RCfr8D7xxfdKApSAh4xQwSjsfNRk+/JPQtVFFg/YrfM="
+              "CodeSha256": "o5hfk39yNkBzYsHZCM0R54o/G13n8um3qX70oXAVzk8="
+            }
+          },
+          "GetUnderscoreitemLambdaVersionIUNVUa1IaeJPU9ybR518SFHxFCWUBlfarfULTNN0cI": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetUnderscoreitemLambdaFunction"
+              },
+              "CodeSha256": "o5hfk39yNkBzYsHZCM0R54o/G13n8um3qX70oXAVzk8="
+            }
+          },
+          "ListUnderscoreitemsLambdaVersionxGE37nbRsfeDk7nMTlfxkZIT8BMFAe4eHeeNDDzRZYY": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "ListUnderscoreitemsLambdaFunction"
+              },
+              "CodeSha256": "o5hfk39yNkBzYsHZCM0R54o/G13n8um3qX70oXAVzk8="
+            }
+          },
+          "LoginLambdaVersionaMmJTMgBltqJcO4sjHA7zuvRlBRg5FPK4BvxBGnJEpQ": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "LoginLambdaFunction"
+              },
+              "CodeSha256": "o5hfk39yNkBzYsHZCM0R54o/G13n8um3qX70oXAVzk8="
+            }
+          },
+          "GetUnderscoreenrolledCoursesLambdaVersionMeFznKojP2V7HvRpN3DalSmy5OUyEVfEKF1Ekhb4g": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetUnderscoreenrolledCoursesLambdaFunction"
+              },
+              "CodeSha256": "o5hfk39yNkBzYsHZCM0R54o/G13n8um3qX70oXAVzk8="
+            }
+          },
+          "GetUnderscoreuserDetailsLambdaVersionXaqt1iGFe8SEvs4MyqyziM7Z5mza5w2XlUjuTur4LE": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetUnderscoreuserDetailsLambdaFunction"
+              },
+              "CodeSha256": "o5hfk39yNkBzYsHZCM0R54o/G13n8um3qX70oXAVzk8="
             }
           },
           "ApiGatewayRestApi": {
@@ -288,6 +493,18 @@
               }
             }
           },
+          "ApiGatewayResourceCoursesCourseidVar": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceCourses"
+              },
+              "PathPart": "{CourseID}",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
           "ApiGatewayResourceFiles": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
@@ -310,6 +527,51 @@
                 "Ref": "ApiGatewayResourceFiles"
               },
               "PathPart": "upload",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceLogin": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "login",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceGetenrolledcourses": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "get_enrolledCourses",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceGetuserdetails": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "get_userDetails",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -344,7 +606,7 @@
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
                       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'"
                     },
                     "ResponseTemplates": {
                       "application/json": ""
@@ -399,6 +661,186 @@
               },
               "ResourceId": {
                 "Ref": "ApiGatewayResourceFilesUpload"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodCoursesCourseidVarOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceCoursesCourseidVar"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodLoginOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceLogin"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodGetenrolledcoursesOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceGetenrolledcourses"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodGetuserdetailsOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceGetuserdetails"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -497,7 +939,237 @@
               "UploadUnderscorefileLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1720978707394": {
+          "ApiGatewayMethodCoursesCourseidVarGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceCoursesCourseidVar"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetUnderscoreitemLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "GetUnderscoreitemLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayMethodCoursesGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceCourses"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "ListUnderscoreitemsLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "ListUnderscoreitemsLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayMethodLoginPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceLogin"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "LoginLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "LoginLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayMethodGetenrolledcoursesGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceGetenrolledcourses"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetUnderscoreenrolledCoursesLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "GetUnderscoreenrolledCoursesLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayMethodGetuserdetailsGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceGetuserdetails"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetUnderscoreuserDetailsLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "GetUnderscoreuserDetailsLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayDeployment1721043079378": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -508,8 +1180,17 @@
             "DependsOn": [
               "ApiGatewayMethodCoursesOptions",
               "ApiGatewayMethodFilesUploadOptions",
+              "ApiGatewayMethodCoursesCourseidVarOptions",
+              "ApiGatewayMethodLoginOptions",
+              "ApiGatewayMethodGetenrolledcoursesOptions",
+              "ApiGatewayMethodGetuserdetailsOptions",
               "ApiGatewayMethodCoursesPost",
-              "ApiGatewayMethodFilesUploadPost"
+              "ApiGatewayMethodFilesUploadPost",
+              "ApiGatewayMethodCoursesCourseidVarGet",
+              "ApiGatewayMethodCoursesGet",
+              "ApiGatewayMethodLoginPost",
+              "ApiGatewayMethodGetenrolledcoursesGet",
+              "ApiGatewayMethodGetuserdetailsGet"
             ]
           },
           "CreateLambdaPermissionApiGateway": {
@@ -585,6 +1266,191 @@
                 ]
               }
             }
+          },
+          "GetUnderscoreitemLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "GetUnderscoreitemLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "ListUnderscoreitemsLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "ListUnderscoreitemsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "LoginLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "LoginLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "GetUnderscoreenrolledCoursesLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "GetUnderscoreenrolledCoursesLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "GetUnderscoreuserDetailsLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "GetUnderscoreuserDetailsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
           }
         },
         "Outputs": {
@@ -599,7 +1465,7 @@
           "CreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateLambdaVersionfsTEh0yIhc2s6fvkpWI51vaYOEe167eS6UC5xaTnERE"
+              "Ref": "CreateLambdaVersionSf976Ph3syFsObiXWd1e7SRwbRjfJrX2TVPWVVEBdko"
             },
             "Export": {
               "Name": "sls-aws-project-dev-CreateLambdaFunctionQualifiedArn"
@@ -608,10 +1474,55 @@
           "UploadUnderscorefileLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UploadUnderscorefileLambdaVersionZrmJrrCrq4c1vBVhjWN5VX0d8AMt0hmikdZM0vqRjF4"
+              "Ref": "UploadUnderscorefileLambdaVersionjpXCDLtadOJzna84aPp8PYPBpBXGpQ2MXYcyHwQ"
             },
             "Export": {
               "Name": "sls-aws-project-dev-UploadUnderscorefileLambdaFunctionQualifiedArn"
+            }
+          },
+          "GetUnderscoreitemLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetUnderscoreitemLambdaVersionIUNVUa1IaeJPU9ybR518SFHxFCWUBlfarfULTNN0cI"
+            },
+            "Export": {
+              "Name": "sls-aws-project-dev-GetUnderscoreitemLambdaFunctionQualifiedArn"
+            }
+          },
+          "ListUnderscoreitemsLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "ListUnderscoreitemsLambdaVersionxGE37nbRsfeDk7nMTlfxkZIT8BMFAe4eHeeNDDzRZYY"
+            },
+            "Export": {
+              "Name": "sls-aws-project-dev-ListUnderscoreitemsLambdaFunctionQualifiedArn"
+            }
+          },
+          "LoginLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "LoginLambdaVersionaMmJTMgBltqJcO4sjHA7zuvRlBRg5FPK4BvxBGnJEpQ"
+            },
+            "Export": {
+              "Name": "sls-aws-project-dev-LoginLambdaFunctionQualifiedArn"
+            }
+          },
+          "GetUnderscoreenrolledCoursesLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetUnderscoreenrolledCoursesLambdaVersionMeFznKojP2V7HvRpN3DalSmy5OUyEVfEKF1Ekhb4g"
+            },
+            "Export": {
+              "Name": "sls-aws-project-dev-GetUnderscoreenrolledCoursesLambdaFunctionQualifiedArn"
+            }
+          },
+          "GetUnderscoreuserDetailsLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetUnderscoreuserDetailsLambdaVersionXaqt1iGFe8SEvs4MyqyziM7Z5mza5w2XlUjuTur4LE"
+            },
+            "Export": {
+              "Name": "sls-aws-project-dev-GetUnderscoreuserDetailsLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -767,7 +1678,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "CreateLambdaVersionfsTEh0yIhc2s6fvkpWI51vaYOEe167eS6UC5xaTnERE"
+        "versionLogicalId": "CreateLambdaVersionSf976Ph3syFsObiXWd1e7SRwbRjfJrX2TVPWVVEBdko"
       },
       "upload_file": {
         "handler": "handler.create",
@@ -803,7 +1714,187 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "UploadUnderscorefileLambdaVersionZrmJrrCrq4c1vBVhjWN5VX0d8AMt0hmikdZM0vqRjF4"
+        "versionLogicalId": "UploadUnderscorefileLambdaVersionjpXCDLtadOJzna84aPp8PYPBpBXGpQ2MXYcyHwQ"
+      },
+      "get_item": {
+        "handler": "handler.get_item",
+        "events": [
+          {
+            "http": {
+              "path": "courses/{CourseID}",
+              "method": "get",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "aws-project-dev-get_item",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "python3.9",
+        "vpc": {},
+        "versionLogicalId": "GetUnderscoreitemLambdaVersionIUNVUa1IaeJPU9ybR518SFHxFCWUBlfarfULTNN0cI"
+      },
+      "list_items": {
+        "handler": "handler.list_items",
+        "events": [
+          {
+            "http": {
+              "path": "courses",
+              "method": "get",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "aws-project-dev-list_items",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "python3.9",
+        "vpc": {},
+        "versionLogicalId": "ListUnderscoreitemsLambdaVersionxGE37nbRsfeDk7nMTlfxkZIT8BMFAe4eHeeNDDzRZYY"
+      },
+      "login": {
+        "handler": "handler.login",
+        "events": [
+          {
+            "http": {
+              "path": "login",
+              "method": "post",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "aws-project-dev-login",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "python3.9",
+        "vpc": {},
+        "versionLogicalId": "LoginLambdaVersionaMmJTMgBltqJcO4sjHA7zuvRlBRg5FPK4BvxBGnJEpQ"
+      },
+      "get_enrolledCourses": {
+        "handler": "handler.get_enrolledCourses",
+        "events": [
+          {
+            "http": {
+              "path": "get_enrolledCourses",
+              "method": "get",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "aws-project-dev-get_enrolledCourses",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "python3.9",
+        "vpc": {},
+        "versionLogicalId": "GetUnderscoreenrolledCoursesLambdaVersionMeFznKojP2V7HvRpN3DalSmy5OUyEVfEKF1Ekhb4g"
+      },
+      "get_userDetails": {
+        "handler": "handler.get_user_details",
+        "events": [
+          {
+            "http": {
+              "path": "get_userDetails",
+              "method": "get",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "aws-project-dev-get_userDetails",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "python3.9",
+        "vpc": {},
+        "versionLogicalId": "GetUnderscoreuserDetailsLambdaVersionXaqt1iGFe8SEvs4MyqyziM7Z5mza5w2XlUjuTur4LE"
       }
     },
     "configValidationMode": "warn",
@@ -828,7 +1919,7 @@
     "artifact": "C:\\Users\\estat\\OneDrive\\Desktop\\awsproject\\.serverless\\aws-project.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-project/dev/1720978721866-2024-07-14T17:38:41.866Z",
+    "artifactDirectoryName": "serverless/aws-project/dev/1721043095729-2024-07-15T11:31:35.729Z",
     "artifact": "aws-project.zip"
   }
 }
