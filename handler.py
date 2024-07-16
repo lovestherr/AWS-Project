@@ -31,7 +31,7 @@ def create(event, context):
     course_id = body['CourseID']
     course_name = body['CourseName']
     course_description = body['CourseDescription']
-    student_id = body['StudentID']
+    student_ids = body['StudentIDs']
     teacher_id = body['TeacherID']
     content_path = body['ContentPath']
 
@@ -65,8 +65,10 @@ def create(event, context):
         }
     )
 
-    # Add course to student's enrolled courses
-    add_course_to_student(student_id, course_id)
+    # Add course id to students' enrolled courses
+    for student_id in student_ids:
+            add_course_to_student(student_id, course_id)
+    
 
     add_course_to_teacher(teacher_id, course_id)
     
@@ -220,10 +222,34 @@ def login(event, context):
             'body': json.dumps({'error': str(e)})
         }
 
-def get_enrolledCourses(event, context):
+def get_studentEnrolledCourses(event, context):
     table = dynamodb.Table('students')
     student_id = event['queryStringParameters']['studentID']
     result = table.get_item(Key={'studentID': student_id})
+    item = result.get('Item')
+    if item:
+        return {
+            'statusCode': 200,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps(item)
+        }
+    else:
+        return {
+            'statusCode': 404,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps({'error': 'Item not found'})
+        }
+    
+def get_teacherEnrolledCourses(event, context):
+    table = dynamodb.Table('teachers')
+    teacher_id = event['queryStringParameters']['teacherID']
+    result = table.get_item(Key={'teacherID': teacher_id})
     item = result.get('Item')
     if item:
         return {

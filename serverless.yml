@@ -49,11 +49,18 @@ functions:
           path: login
           method: post
           cors: true
-  get_enrolledCourses:
-    handler: handler.get_enrolledCourses
+  get_studentEnrolledCourses:
+    handler: handler.get_studentEnrolledCourses
     events:
       - http:
-          path: get_enrolledCourses
+          path: get_studentEnrolledCourses
+          method: get
+          cors: true
+  get_teacherEnrolledCourses:
+    handler: handler.get_teacherEnrolledCourses
+    events:
+      - http:
+          path: get_teacherEnrolledCourses
           method: get
           cors: true
   get_user_details:
