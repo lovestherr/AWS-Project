@@ -32,6 +32,7 @@ def create(event, context):
     course_name = body['CourseName']
     course_description = body['CourseDescription']
     student_id = body['StudentID']
+    teacher_id = body['TeacherID']
     content_path = body['ContentPath']
 
     # Get file content and decode it from base64
@@ -66,6 +67,8 @@ def create(event, context):
 
     # Add course to student's enrolled courses
     add_course_to_student(student_id, course_id)
+
+    add_course_to_teacher(teacher_id, course_id)
     
     return {
         'statusCode': 200,
@@ -91,6 +94,20 @@ def add_course_to_student(student_id, course_id):
     # Update the student's enrolled courses list
     response = table.update_item(
         Key={'studentID': student_id},
+        UpdateExpression="SET enrolledCourses = list_append(if_not_exists(enrolledCourses, :empty_list), :course)",
+        ExpressionAttributeValues={
+            ':course': [course_id],
+            ':empty_list': []
+        },
+        ReturnValues="UPDATED_NEW"
+    )
+
+def add_course_to_teacher(teacher_id, course_id):
+    table = dynamodb.Table('teachers')
+    
+    # Update the student's enrolled courses list
+    response = table.update_item(
+        Key={'teacherID': teacher_id},
         UpdateExpression="SET enrolledCourses = list_append(if_not_exists(enrolledCourses, :empty_list), :course)",
         ExpressionAttributeValues={
             ':course': [course_id],
@@ -135,6 +152,21 @@ def list_items(event, context):
         },
         'body': json.dumps(items)
     }
+
+def list_students(event, context):
+    table = dynamodb.Table('students')
+    result = table.scan()
+    items = result.get('Items', [])
+    return {
+         'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+        'body': json.dumps(items)
+    }
+
+    
 
 
 def login(event, context):

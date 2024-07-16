@@ -77,3 +77,11 @@ functions:
           path: courses/edit
           method: post
           cors: true
+  list_students:
+    handler: handler.list_students
+    events:
+      - http:
+          path: students
+          method: get
+          cors: true
+
