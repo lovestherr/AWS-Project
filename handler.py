@@ -31,6 +31,7 @@ def create(event, context):
     course_id = body['CourseID']
     course_name = body['CourseName']
     course_description = body['CourseDescription']
+    student_id = body['StudentID']
     content_path = body['ContentPath']
 
     # Get file content and decode it from base64
@@ -54,7 +55,7 @@ def create(event, context):
         }
     
     # Put the item into DynamoDB
-    response = table.put_item(
+    table.put_item(
         Item={
             'CourseID': course_id,
             'CourseName': course_name,
@@ -62,6 +63,9 @@ def create(event, context):
             'ContentPath': content_path,
         }
     )
+
+    # Add course to student's enrolled courses
+    add_course_to_student(student_id, course_id)
     
     return {
         'statusCode': 200,
@@ -69,7 +73,7 @@ def create(event, context):
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Credentials': 'true'
         },
-        'body': json.dumps('Course created successfully')
+        'body': json.dumps('Course created and added to student successfully')
     }
 
 def upload_file(file_content, bucket_name, object_name, region_name='eu-west-1'):
@@ -80,6 +84,20 @@ def upload_file(file_content, bucket_name, object_name, region_name='eu-west-1')
     except ClientError as e:
         return False, str(e)
     return True, "File uploaded successfully"
+
+def add_course_to_student(student_id, course_id):
+    table = dynamodb.Table('students')
+    
+    # Update the student's enrolled courses list
+    response = table.update_item(
+        Key={'studentID': student_id},
+        UpdateExpression="SET enrolledCourses = list_append(if_not_exists(enrolledCourses, :empty_list), :course)",
+        ExpressionAttributeValues={
+            ':course': [course_id],
+            ':empty_list': []
+        },
+        ReturnValues="UPDATED_NEW"
+    )
 
 def get_item(event, context):
     table = dynamodb.Table('Course')
@@ -117,6 +135,7 @@ def list_items(event, context):
         },
         'body': json.dumps(items)
     }
+
 
 def login(event, context):
     # Parse the body from the event
@@ -221,3 +240,117 @@ def get_user_details(event, context):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
+
+def delete_course(event, context):
+    # Parse the input
+    body = json.loads(event['body'])
+    
+    course_id = body['CourseID']
+    
+    # Get the course details to find the file path
+    response = table.get_item(Key={'CourseID': course_id})
+    item = response.get('Item')
+    if not item:
+        return {
+            'statusCode': 404,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps({'error': 'Course not found'})
+        }
+
+    # Define S3 object name
+    object_name = f'uploads/{course_id}/{item["CourseName"]}.txt'
+
+    # Delete file from S3
+    success, message = delete_file(bucket_name, object_name)
+    if not success:
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps(f"Failed to delete file: {message}")
+        }
+
+    # Delete the item from DynamoDB
+    table.delete_item(Key={'CourseID': course_id})
+    
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+        'body': json.dumps('Course deleted successfully')
+    }
+
+def delete_file(bucket_name, object_name):
+    try:
+        s3.delete_object(Bucket=bucket_name, Key=object_name)
+    except NoCredentialsError:
+        return False, "Credentials not available"
+    except ClientError as e:
+        return False, str(e)
+    return True, "File deleted successfully"
+
+def edit_course(event, context):
+    # Parse the input
+    body = json.loads(event['body'])
+    
+    course_id = body['CourseID']
+    updated_fields = {key: value for key, value in body.items() if key not in ['CourseID', 'FileContent']}
+
+    # Update file content if provided
+    if 'FileContent' in body:
+        file_content_base64 = body['FileContent']
+        file_content = base64.b64decode(file_content_base64)
+
+        # Get current course details to determine S3 object path
+        response = table.get_item(Key={'CourseID': course_id})
+        item = response.get('Item')
+        if not item:
+            return {
+                'statusCode': 404,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                'body': json.dumps({'error': 'Course not found'})
+            }
+
+        object_name = f'uploads/{course_id}/{item["CourseName"]}.txt'
+        
+        # Upload updated file to S3
+        success, message = upload_file(file_content, bucket_name, object_name)
+        if not success:
+            return {
+                'statusCode': 500,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                'body': json.dumps(f"Failed to upload file: {message}")
+            }
+
+    # Update the item in DynamoDB
+    update_expression = 'SET ' + ', '.join(f"{key} = :{key}" for key in updated_fields.keys())
+    expression_attribute_values = {f":{key}": value for key, value in updated_fields.items()}
+
+    table.update_item(
+        Key={'CourseID': course_id},
+        UpdateExpression=update_expression,
+        ExpressionAttributeValues=expression_attribute_values
+    )
+    
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+        'body': json.dumps('Course updated successfully')
+    }
+

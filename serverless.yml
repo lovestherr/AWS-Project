@@ -28,13 +28,6 @@ functions:
           path: courses
           method: post
           cors: true
-  upload_file:
-    handler: handler.create  # Since file upload is part of the create function
-    events:
-      - http:
-          path: files/upload
-          method: post
-          cors: true
   get_item:
     handler: handler.get_item
     events:
@@ -63,10 +56,24 @@ functions:
           path: get_enrolledCourses
           method: get
           cors: true
-  get_userDetails:
+  get_user_details:
     handler: handler.get_user_details
     events:
       - http:
           path: get_userDetails
           method: get
+          cors: true
+  delete_course:
+    handler: handler.delete_course
+    events:
+      - http:
+          path: courses/delete
+          method: post
+          cors: true
+  edit_course:
+    handler: handler.edit_course
+    events:
+      - http:
+          path: courses/edit
+          method: post
           cors: true
