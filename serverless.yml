@@ -28,6 +28,7 @@ functions:
           path: courses
           method: post
           cors: true
+
   get_item:
     handler: handler.get_item
     events:
@@ -35,6 +36,7 @@ functions:
           path: courses/{CourseID}
           method: get
           cors: true
+
   list_items:
     handler: handler.list_items
     events:
@@ -42,6 +44,7 @@ functions:
           path: courses
           method: get
           cors: true
+
   login:
     handler: handler.login
     events:
@@ -49,6 +52,7 @@ functions:
           path: login
           method: post
           cors: true
+
   get_enrolledCourses:
     handler: handler.get_enrolledCourses
     events:
@@ -56,6 +60,7 @@ functions:
           path: get_enrolledCourses
           method: get
           cors: true
+
   get_user_details:
     handler: handler.get_user_details
     events:
@@ -63,6 +68,7 @@ functions:
           path: get_userDetails
           method: get
           cors: true
+
   delete_course:
     handler: handler.delete_course
     events:
@@ -70,6 +76,7 @@ functions:
           path: courses/delete
           method: post
           cors: true
+
   edit_course:
     handler: handler.edit_course
     events:
@@ -77,6 +84,7 @@ functions:
           path: courses/edit
           method: post
           cors: true
+
   list_students:
     handler: handler.list_students
     events:
@@ -85,3 +93,18 @@ functions:
           method: get
           cors: true
 
+  add_student_to_parent:
+    handler: handler.add_student_to_parent
+    events:
+      - http:
+          path: parents
+          method: post
+          cors: true
+
+  add_file_to_student_reports:
+    handler: handler.add_file_to_student_reports
+    events:
+      - http:
+          path: reports
+          method: post
+          cors: true

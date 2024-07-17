@@ -6,7 +6,7 @@ import base64
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('Course')
-
+parents_table = dynamodb.Table('parents')
 s3 = boto3.client('s3')
 client = boto3.client('cognito-idp')
 
@@ -31,7 +31,7 @@ def create(event, context):
     course_id = body['CourseID']
     course_name = body['CourseName']
     course_description = body['CourseDescription']
-    student_id = body['StudentID']
+    student_ids = body['StudentIDs']
     teacher_id = body['TeacherID']
     content_path = body['ContentPath']
 
@@ -65,8 +65,10 @@ def create(event, context):
         }
     )
 
-    # Add course to student's enrolled courses
-    add_course_to_student(student_id, course_id)
+    # Add course id to students' enrolled courses
+    for student_id in student_ids:
+            add_course_to_student(student_id, course_id)
+    
 
     add_course_to_teacher(teacher_id, course_id)
     
@@ -386,3 +388,106 @@ def edit_course(event, context):
         'body': json.dumps('Course updated successfully')
     }
 
+def add_student_to_parent(event, context):
+    if event['httpMethod'] == 'OPTIONS':
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            },
+            'body': ''
+        }
+
+    # Parse the input
+    body = json.loads(event['body'])
+    
+    parent_id = body['ParentID']
+    student_id = body['StudentID']
+
+    try:
+        # Update the parent's studentID list
+        response = parents_table.update_item(
+            Key={'parentID': parent_id},
+            UpdateExpression="SET studentID = list_append(if_not_exists(studentID, :empty_list), :student)",
+            ExpressionAttributeValues={
+                ':student': [student_id],
+                ':empty_list': []
+            },
+            ReturnValues="UPDATED_NEW"
+        )
+        
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps('Student added to parent successfully')
+        }
+    except NoCredentialsError:
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps('Credentials not available')
+        }
+    except ClientError as e:
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps(f"Failed to update parent: {str(e)}")
+        }
+
+def add_file_to_student_reports(event, context):
+    if event['httpMethod'] == 'OPTIONS':
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            },
+            'body': ''
+        }
+
+    # Parse the input
+    body = json.loads(event['body'])
+    
+    student_id = body['StudentID']
+    content_path = body['ContentPath']
+    file_content_base64 = body['FileContent']
+    
+    # Decode the base64 file content
+    file_content = base64.b64decode(file_content_base64)
+    
+    # Define S3 object name
+    object_name = f'reports/{student_id}/{content_path}'
+    
+    # Upload the file to S3
+    success, message = upload_file(file_content, bucket_name, object_name)
+    
+    if not success:
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps(f"Failed to upload file: {message}")
+        }
+    
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+        'body': json.dumps('File uploaded successfully')
+    }
