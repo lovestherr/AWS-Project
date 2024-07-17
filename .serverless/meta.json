@@ -1,5 +1,5 @@
 {
-  "C:\\Users\\estat\\OneDrive\\Desktop\\awsproject": {
+  "C:\\Users\\ASUS\\Desktop\\projectAWS\\AWS-Project": {
     "versionSfCore": null,
     "versionFramework": "4.1.12",
     "isWithinCompose": false,
@@ -7,7 +7,7 @@
     "composeOrgName": null,
     "composeResolverProviders": {},
     "composeServiceName": null,
-    "servicePath": "C:\\Users\\estat\\OneDrive\\Desktop\\awsproject",
+    "servicePath": "C:\\Users\\ASUS\\Desktop\\projectAWS\\AWS-Project",
     "serviceConfigFileName": "serverless.yml",
     "service": {
       "org": "estabraq",
@@ -160,6 +160,12 @@
                 "LogGroupName": "/aws/lambda/aws-project-dev-list_students"
               }
             },
+            "ListUnderscoreparentsLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/aws-project-dev-list_parents"
+              }
+            },
             "AddUnderscorestudentsUnderscoretoUnderscoreparentLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
@@ -182,6 +188,12 @@
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
                 "LogGroupName": "/aws/lambda/aws-project-dev-get_teacherEnrolledCourses"
+              }
+            },
+            "GetUnderscorestudentOfParentLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/aws-project-dev-get_studentOfParent"
               }
             },
             "IamRoleLambdaExecution": {
@@ -278,7 +290,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.create",
                 "Runtime": "python3.9",
@@ -303,7 +315,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.get_item",
                 "Runtime": "python3.9",
@@ -328,7 +340,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.list_items",
                 "Runtime": "python3.9",
@@ -353,7 +365,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.login",
                 "Runtime": "python3.9",
@@ -378,7 +390,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.get_enrolledCourses",
                 "Runtime": "python3.9",
@@ -403,7 +415,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.get_user_details",
                 "Runtime": "python3.9",
@@ -428,7 +440,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.delete_course",
                 "Runtime": "python3.9",
@@ -453,7 +465,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.edit_course",
                 "Runtime": "python3.9",
@@ -478,7 +490,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.list_students",
                 "Runtime": "python3.9",
@@ -496,6 +508,31 @@
                 "ListUnderscorestudentsLogGroup"
               ]
             },
+            "ListUnderscoreparentsLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": {
+                    "Ref": "ServerlessDeploymentBucket"
+                  },
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
+                },
+                "Handler": "handler.list_parents",
+                "Runtime": "python3.9",
+                "FunctionName": "aws-project-dev-list_parents",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "ListUnderscoreparentsLogGroup"
+              ]
+            },
             "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaFunction": {
               "Type": "AWS::Lambda::Function",
               "Properties": {
@@ -503,7 +540,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.add_students_to_parent",
                 "Runtime": "python3.9",
@@ -528,7 +565,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.add_file_to_student_reports",
                 "Runtime": "python3.9",
@@ -553,7 +590,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.get_studentEnrolledCourses",
                 "Runtime": "python3.9",
@@ -578,7 +615,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/aws-project/dev/1721227093418-2024-07-17T14:38:13.418Z/aws-project.zip"
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
                 },
                 "Handler": "handler.get_teacherEnrolledCourses",
                 "Runtime": "python3.9",
@@ -596,134 +633,179 @@
                 "GetUnderscoreteacherEnrolledCoursesLogGroup"
               ]
             },
-            "CreateLambdaVersion9uRL8VpkQhBeh5m1jWocm9tJOxQJ6gd0kVsc8Saxc": {
+            "GetUnderscorestudentOfParentLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": {
+                    "Ref": "ServerlessDeploymentBucket"
+                  },
+                  "S3Key": "serverless/aws-project/dev/1721248876078-2024-07-17T20:41:16.078Z/aws-project.zip"
+                },
+                "Handler": "handler.get_studentOfParent",
+                "Runtime": "python3.9",
+                "FunctionName": "aws-project-dev-get_studentOfParent",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "GetUnderscorestudentOfParentLogGroup"
+              ]
+            },
+            "CreateLambdaVersionUGVkDvzReyuOm74WpLEzwWq6SAsCADRfUOt5X05fwM": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "CreateLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "GetUnderscoreitemLambdaVersionjwMjth4FeADmcYWwSBG7W2NdGqlrhpmB3OyFZEa8": {
+            "GetUnderscoreitemLambdaVersionnELcuiiQaHiquZa86Op0xAKDD1mo49V1ykSYxLKAVY": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetUnderscoreitemLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "ListUnderscoreitemsLambdaVersionE230blTB4tnXkDvuYi1KIciHmslPkDmNlYdlfpYc": {
+            "ListUnderscoreitemsLambdaVersion7SLNRAdOXWhDRzjak9SNJQt9r9XmEpmjmASjxXjh4": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ListUnderscoreitemsLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "LoginLambdaVersionQlrmm5Xf10mdp3kJhzTmkMbW4SqaAg8BUT7VyI1Y": {
+            "LoginLambdaVersionEaPUf5lu3tkIqxkQveyzWngdOkbgntPt8aXIj6POU": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "LoginLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "GetUnderscoreenrolledCoursesLambdaVersionMXTSl9Q6Gs3HclllEqy5jcwDtx2ED9T1sgQM3CkvqA": {
+            "GetUnderscoreenrolledCoursesLambdaVersionR6qlXRWBTCSgZEQEX3mQlf6EEqew4eof9EDHBMcFcZA": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetUnderscoreenrolledCoursesLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "GetUnderscoreuserUnderscoredetailsLambdaVersionv8YQleUdfPUtQw3JO70RI99HwsFtGZQQiNJmWsQpM": {
+            "GetUnderscoreuserUnderscoredetailsLambdaVersionvdHkioPdBzCiqYyuqFVsZGeoDQEo0kPzmjqrSacZIuY": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetUnderscoreuserUnderscoredetailsLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "DeleteUnderscorecourseLambdaVersionykxiCTntPkelag23mBI1C2uqmlGzPIc2wmzkhP6yLo": {
+            "DeleteUnderscorecourseLambdaVersionMZZnMGYPSDG7g8WuHkU7H9N30ztFcYe9O68hFeNpXRA": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "DeleteUnderscorecourseLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "EditUnderscorecourseLambdaVersionHwCariolOzIIYxXyLSJMvlAnAXjpwZSHy122vAJBnpI": {
+            "EditUnderscorecourseLambdaVersionUSFRGpH3hAPuFAi3AHm46dhVXf5bAkSQMojlQkPg3QY": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "EditUnderscorecourseLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "ListUnderscorestudentsLambdaVersionm7c2QHbwF2FSAoblMHtNku9Qc5DIWWmqhBuL1p0ZR4": {
+            "ListUnderscorestudentsLambdaVersionuBHnAjsykC74uwLCT5XLswdboFr8rWwxcfypdDbYwdo": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ListUnderscorestudentsLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaVersionFQTS2UcIpMBL4myxQe70tBokcJdjSwychM85t4iF9c": {
+            "ListUnderscoreparentsLambdaVersionpQFTLS8wI1nFb8Cis8BeMcRHVFLjX7FJrbXkDDE0GmA": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "ListUnderscoreparentsLambdaFunction"
+                },
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
+              }
+            },
+            "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaVersionR9RjMF0M1FTnjADGB9u88wtLux5KUVpbAiWgk5vU": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaVersion9YLEBtx9h9SE6CizK7q4IF9I8xfK0vWe44qcdzQR4s": {
+            "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaVersionYucXLzJto1SAuwpEeuuzpQ6bQIj4Y4W4wopi9Sl2bk": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "GetUnderscorestudentEnrolledCoursesLambdaVersionPHCKIMrBIZVrsDPw5RbrYVF4ECBtfeKWWK762Qglm5A": {
+            "GetUnderscorestudentEnrolledCoursesLambdaVersioniMiCe0fE937VKhpJEqsoWJl5vkQWTDBfhxa6GxrXzyM": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetUnderscorestudentEnrolledCoursesLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
-            "GetUnderscoreteacherEnrolledCoursesLambdaVersion6amqLWTiyfasjRWDh64GOSzJEuc8lpKRe0VMVTgKPKk": {
+            "GetUnderscoreteacherEnrolledCoursesLambdaVersioniSumODWzXeYEUYj08l5PqGPL5qkpEbDXSFb2WwNuI": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetUnderscoreteacherEnrolledCoursesLambdaFunction"
                 },
-                "CodeSha256": "H8XPECz095x6uaLEyl6URvEVjA52tzthqHhP9eFD7es="
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
+              }
+            },
+            "GetUnderscorestudentOfParentLambdaVersionnHFBHrt2Yjbmcxi4YeP5J17IJ97rxffesEKGkTH1CKU": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "GetUnderscorestudentOfParentLambdaFunction"
+                },
+                "CodeSha256": "6MPaXx3SUIXswKavbm4LkakfQD8bxpSAPICWeGyCD5M="
               }
             },
             "ApiGatewayRestApi": {
@@ -904,6 +986,21 @@
                   ]
                 },
                 "PathPart": "get_teacherEnrolledCourses",
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
+            "ApiGatewayResourceGetstudentofparent": {
+              "Type": "AWS::ApiGateway::Resource",
+              "Properties": {
+                "ParentId": {
+                  "Fn::GetAtt": [
+                    "ApiGatewayRestApi",
+                    "RootResourceId"
+                  ]
+                },
+                "PathPart": "get_studentOfParent",
                 "RestApiId": {
                   "Ref": "ApiGatewayRestApi"
                 }
@@ -1298,7 +1395,7 @@
                       "ResponseParameters": {
                         "method.response.header.Access-Control-Allow-Origin": "'*'",
                         "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
-                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST,GET'"
                       },
                       "ResponseTemplates": {
                         "application/json": ""
@@ -1443,6 +1540,51 @@
                 },
                 "ResourceId": {
                   "Ref": "ApiGatewayResourceGetteacherenrolledcourses"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
+            "ApiGatewayMethodGetstudentofparentOptions": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "AuthorizationType": "NONE",
+                "HttpMethod": "OPTIONS",
+                "MethodResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": true,
+                      "method.response.header.Access-Control-Allow-Headers": true,
+                      "method.response.header.Access-Control-Allow-Methods": true
+                    },
+                    "ResponseModels": {}
+                  }
+                ],
+                "RequestParameters": {},
+                "Integration": {
+                  "Type": "MOCK",
+                  "RequestTemplates": {
+                    "application/json": "{statusCode:200}"
+                  },
+                  "ContentHandling": "CONVERT_TO_TEXT",
+                  "IntegrationResponses": [
+                    {
+                      "StatusCode": "200",
+                      "ResponseParameters": {
+                        "method.response.header.Access-Control-Allow-Origin": "'*'",
+                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      },
+                      "ResponseTemplates": {
+                        "application/json": ""
+                      }
+                    }
+                  ]
+                },
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceGetstudentofparent"
                 },
                 "RestApiId": {
                   "Ref": "ApiGatewayRestApi"
@@ -1863,6 +2005,52 @@
                 "ListUnderscorestudentsLambdaPermissionApiGateway"
               ]
             },
+            "ApiGatewayMethodParentsGet": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "HttpMethod": "GET",
+                "RequestParameters": {},
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceParents"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                },
+                "ApiKeyRequired": "<REDACTED>",
+                "AuthorizationType": "NONE",
+                "Integration": {
+                  "IntegrationHttpMethod": "POST",
+                  "Type": "AWS_PROXY",
+                  "Uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":apigateway:",
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":lambda:path/2015-03-31/functions/",
+                        {
+                          "Fn::GetAtt": [
+                            "ListUnderscoreparentsLambdaFunction",
+                            "Arn"
+                          ]
+                        },
+                        "/invocations"
+                      ]
+                    ]
+                  }
+                },
+                "MethodResponses": []
+              },
+              "DependsOn": [
+                "ListUnderscoreparentsLambdaPermissionApiGateway"
+              ]
+            },
             "ApiGatewayMethodParentsPost": {
               "Type": "AWS::ApiGateway::Method",
               "Properties": {
@@ -2047,7 +2235,53 @@
                 "GetUnderscoreteacherEnrolledCoursesLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1721227089561": {
+            "ApiGatewayMethodGetstudentofparentGet": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "HttpMethod": "GET",
+                "RequestParameters": {},
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceGetstudentofparent"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                },
+                "ApiKeyRequired": "<REDACTED>",
+                "AuthorizationType": "NONE",
+                "Integration": {
+                  "IntegrationHttpMethod": "POST",
+                  "Type": "AWS_PROXY",
+                  "Uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":apigateway:",
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":lambda:path/2015-03-31/functions/",
+                        {
+                          "Fn::GetAtt": [
+                            "GetUnderscorestudentOfParentLambdaFunction",
+                            "Arn"
+                          ]
+                        },
+                        "/invocations"
+                      ]
+                    ]
+                  }
+                },
+                "MethodResponses": []
+              },
+              "DependsOn": [
+                "GetUnderscorestudentOfParentLambdaPermissionApiGateway"
+              ]
+            },
+            "ApiGatewayDeployment1721248874878": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -2068,6 +2302,7 @@
                 "ApiGatewayMethodReportsOptions",
                 "ApiGatewayMethodGetstudentenrolledcoursesOptions",
                 "ApiGatewayMethodGetteacherenrolledcoursesOptions",
+                "ApiGatewayMethodGetstudentofparentOptions",
                 "ApiGatewayMethodCoursesPost",
                 "ApiGatewayMethodCoursesCourseidVarGet",
                 "ApiGatewayMethodCoursesGet",
@@ -2077,10 +2312,12 @@
                 "ApiGatewayMethodCoursesDeletePost",
                 "ApiGatewayMethodCoursesEditPost",
                 "ApiGatewayMethodStudentsGet",
+                "ApiGatewayMethodParentsGet",
                 "ApiGatewayMethodParentsPost",
                 "ApiGatewayMethodReportsPost",
                 "ApiGatewayMethodGetstudentenrolledcoursesGet",
-                "ApiGatewayMethodGetteacherenrolledcoursesGet"
+                "ApiGatewayMethodGetteacherenrolledcoursesGet",
+                "ApiGatewayMethodGetstudentofparentGet"
               ]
             },
             "CreateLambdaPermissionApiGateway": {
@@ -2416,6 +2653,43 @@
                 }
               }
             },
+            "ListUnderscoreparentsLambdaPermissionApiGateway": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "ListUnderscoreparentsLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "/*/*"
+                    ]
+                  ]
+                }
+              }
+            },
             "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaPermissionApiGateway": {
               "Type": "AWS::Lambda::Permission",
               "Properties": {
@@ -2563,6 +2837,43 @@
                   ]
                 }
               }
+            },
+            "GetUnderscorestudentOfParentLambdaPermissionApiGateway": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "GetUnderscorestudentOfParentLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "/*/*"
+                    ]
+                  ]
+                }
+              }
             }
           },
           "Outputs": {
@@ -2577,7 +2888,7 @@
             "CreateLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "CreateLambdaVersion9uRL8VpkQhBeh5m1jWocm9tJOxQJ6gd0kVsc8Saxc"
+                "Ref": "CreateLambdaVersionUGVkDvzReyuOm74WpLEzwWq6SAsCADRfUOt5X05fwM"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-CreateLambdaFunctionQualifiedArn"
@@ -2586,7 +2897,7 @@
             "GetUnderscoreitemLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetUnderscoreitemLambdaVersionjwMjth4FeADmcYWwSBG7W2NdGqlrhpmB3OyFZEa8"
+                "Ref": "GetUnderscoreitemLambdaVersionnELcuiiQaHiquZa86Op0xAKDD1mo49V1ykSYxLKAVY"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-GetUnderscoreitemLambdaFunctionQualifiedArn"
@@ -2595,7 +2906,7 @@
             "ListUnderscoreitemsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ListUnderscoreitemsLambdaVersionE230blTB4tnXkDvuYi1KIciHmslPkDmNlYdlfpYc"
+                "Ref": "ListUnderscoreitemsLambdaVersion7SLNRAdOXWhDRzjak9SNJQt9r9XmEpmjmASjxXjh4"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-ListUnderscoreitemsLambdaFunctionQualifiedArn"
@@ -2604,7 +2915,7 @@
             "LoginLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "LoginLambdaVersionQlrmm5Xf10mdp3kJhzTmkMbW4SqaAg8BUT7VyI1Y"
+                "Ref": "LoginLambdaVersionEaPUf5lu3tkIqxkQveyzWngdOkbgntPt8aXIj6POU"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-LoginLambdaFunctionQualifiedArn"
@@ -2613,7 +2924,7 @@
             "GetUnderscoreenrolledCoursesLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetUnderscoreenrolledCoursesLambdaVersionMXTSl9Q6Gs3HclllEqy5jcwDtx2ED9T1sgQM3CkvqA"
+                "Ref": "GetUnderscoreenrolledCoursesLambdaVersionR6qlXRWBTCSgZEQEX3mQlf6EEqew4eof9EDHBMcFcZA"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-GetUnderscoreenrolledCoursesLambdaFunctionQualifiedArn"
@@ -2622,7 +2933,7 @@
             "GetUnderscoreuserUnderscoredetailsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetUnderscoreuserUnderscoredetailsLambdaVersionv8YQleUdfPUtQw3JO70RI99HwsFtGZQQiNJmWsQpM"
+                "Ref": "GetUnderscoreuserUnderscoredetailsLambdaVersionvdHkioPdBzCiqYyuqFVsZGeoDQEo0kPzmjqrSacZIuY"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-GetUnderscoreuserUnderscoredetailsLambdaFunctionQualifiedArn"
@@ -2631,7 +2942,7 @@
             "DeleteUnderscorecourseLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "DeleteUnderscorecourseLambdaVersionykxiCTntPkelag23mBI1C2uqmlGzPIc2wmzkhP6yLo"
+                "Ref": "DeleteUnderscorecourseLambdaVersionMZZnMGYPSDG7g8WuHkU7H9N30ztFcYe9O68hFeNpXRA"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-DeleteUnderscorecourseLambdaFunctionQualifiedArn"
@@ -2640,7 +2951,7 @@
             "EditUnderscorecourseLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "EditUnderscorecourseLambdaVersionHwCariolOzIIYxXyLSJMvlAnAXjpwZSHy122vAJBnpI"
+                "Ref": "EditUnderscorecourseLambdaVersionUSFRGpH3hAPuFAi3AHm46dhVXf5bAkSQMojlQkPg3QY"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-EditUnderscorecourseLambdaFunctionQualifiedArn"
@@ -2649,16 +2960,25 @@
             "ListUnderscorestudentsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ListUnderscorestudentsLambdaVersionm7c2QHbwF2FSAoblMHtNku9Qc5DIWWmqhBuL1p0ZR4"
+                "Ref": "ListUnderscorestudentsLambdaVersionuBHnAjsykC74uwLCT5XLswdboFr8rWwxcfypdDbYwdo"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-ListUnderscorestudentsLambdaFunctionQualifiedArn"
               }
             },
+            "ListUnderscoreparentsLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "ListUnderscoreparentsLambdaVersionpQFTLS8wI1nFb8Cis8BeMcRHVFLjX7FJrbXkDDE0GmA"
+              },
+              "Export": {
+                "Name": "sls-aws-project-dev-ListUnderscoreparentsLambdaFunctionQualifiedArn"
+              }
+            },
             "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaVersionFQTS2UcIpMBL4myxQe70tBokcJdjSwychM85t4iF9c"
+                "Ref": "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaVersionR9RjMF0M1FTnjADGB9u88wtLux5KUVpbAiWgk5vU"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaFunctionQualifiedArn"
@@ -2667,7 +2987,7 @@
             "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaVersion9YLEBtx9h9SE6CizK7q4IF9I8xfK0vWe44qcdzQR4s"
+                "Ref": "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaVersionYucXLzJto1SAuwpEeuuzpQ6bQIj4Y4W4wopi9Sl2bk"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaFunctionQualifiedArn"
@@ -2676,7 +2996,7 @@
             "GetUnderscorestudentEnrolledCoursesLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetUnderscorestudentEnrolledCoursesLambdaVersionPHCKIMrBIZVrsDPw5RbrYVF4ECBtfeKWWK762Qglm5A"
+                "Ref": "GetUnderscorestudentEnrolledCoursesLambdaVersioniMiCe0fE937VKhpJEqsoWJl5vkQWTDBfhxa6GxrXzyM"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-GetUnderscorestudentEnrolledCoursesLambdaFunctionQualifiedArn"
@@ -2685,10 +3005,19 @@
             "GetUnderscoreteacherEnrolledCoursesLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetUnderscoreteacherEnrolledCoursesLambdaVersion6amqLWTiyfasjRWDh64GOSzJEuc8lpKRe0VMVTgKPKk"
+                "Ref": "GetUnderscoreteacherEnrolledCoursesLambdaVersioniSumODWzXeYEUYj08l5PqGPL5qkpEbDXSFb2WwNuI"
               },
               "Export": {
                 "Name": "sls-aws-project-dev-GetUnderscoreteacherEnrolledCoursesLambdaFunctionQualifiedArn"
+              }
+            },
+            "GetUnderscorestudentOfParentLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "GetUnderscorestudentOfParentLambdaVersionnHFBHrt2Yjbmcxi4YeP5J17IJ97rxffesEKGkTH1CKU"
+              },
+              "Export": {
+                "Name": "sls-aws-project-dev-GetUnderscorestudentOfParentLambdaFunctionQualifiedArn"
               }
             },
             "ServiceEndpoint": {
@@ -2843,7 +3172,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "CreateLambdaVersion9uRL8VpkQhBeh5m1jWocm9tJOxQJ6gd0kVsc8Saxc"
+          "versionLogicalId": "CreateLambdaVersionUGVkDvzReyuOm74WpLEzwWq6SAsCADRfUOt5X05fwM"
         },
         "get_item": {
           "handler": "handler.get_item",
@@ -2879,7 +3208,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "GetUnderscoreitemLambdaVersionjwMjth4FeADmcYWwSBG7W2NdGqlrhpmB3OyFZEa8"
+          "versionLogicalId": "GetUnderscoreitemLambdaVersionnELcuiiQaHiquZa86Op0xAKDD1mo49V1ykSYxLKAVY"
         },
         "list_items": {
           "handler": "handler.list_items",
@@ -2915,7 +3244,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "ListUnderscoreitemsLambdaVersionE230blTB4tnXkDvuYi1KIciHmslPkDmNlYdlfpYc"
+          "versionLogicalId": "ListUnderscoreitemsLambdaVersion7SLNRAdOXWhDRzjak9SNJQt9r9XmEpmjmASjxXjh4"
         },
         "login": {
           "handler": "handler.login",
@@ -2951,7 +3280,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "LoginLambdaVersionQlrmm5Xf10mdp3kJhzTmkMbW4SqaAg8BUT7VyI1Y"
+          "versionLogicalId": "LoginLambdaVersionEaPUf5lu3tkIqxkQveyzWngdOkbgntPt8aXIj6POU"
         },
         "get_enrolledCourses": {
           "handler": "handler.get_enrolledCourses",
@@ -2987,7 +3316,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "GetUnderscoreenrolledCoursesLambdaVersionMXTSl9Q6Gs3HclllEqy5jcwDtx2ED9T1sgQM3CkvqA"
+          "versionLogicalId": "GetUnderscoreenrolledCoursesLambdaVersionR6qlXRWBTCSgZEQEX3mQlf6EEqew4eof9EDHBMcFcZA"
         },
         "get_user_details": {
           "handler": "handler.get_user_details",
@@ -3023,7 +3352,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "GetUnderscoreuserUnderscoredetailsLambdaVersionv8YQleUdfPUtQw3JO70RI99HwsFtGZQQiNJmWsQpM"
+          "versionLogicalId": "GetUnderscoreuserUnderscoredetailsLambdaVersionvdHkioPdBzCiqYyuqFVsZGeoDQEo0kPzmjqrSacZIuY"
         },
         "delete_course": {
           "handler": "handler.delete_course",
@@ -3059,7 +3388,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "DeleteUnderscorecourseLambdaVersionykxiCTntPkelag23mBI1C2uqmlGzPIc2wmzkhP6yLo"
+          "versionLogicalId": "DeleteUnderscorecourseLambdaVersionMZZnMGYPSDG7g8WuHkU7H9N30ztFcYe9O68hFeNpXRA"
         },
         "edit_course": {
           "handler": "handler.edit_course",
@@ -3095,7 +3424,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "EditUnderscorecourseLambdaVersionHwCariolOzIIYxXyLSJMvlAnAXjpwZSHy122vAJBnpI"
+          "versionLogicalId": "EditUnderscorecourseLambdaVersionUSFRGpH3hAPuFAi3AHm46dhVXf5bAkSQMojlQkPg3QY"
         },
         "list_students": {
           "handler": "handler.list_students",
@@ -3131,7 +3460,43 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "ListUnderscorestudentsLambdaVersionm7c2QHbwF2FSAoblMHtNku9Qc5DIWWmqhBuL1p0ZR4"
+          "versionLogicalId": "ListUnderscorestudentsLambdaVersionuBHnAjsykC74uwLCT5XLswdboFr8rWwxcfypdDbYwdo"
+        },
+        "list_parents": {
+          "handler": "handler.list_parents",
+          "events": [
+            {
+              "http": {
+                "path": "parents",
+                "method": "get",
+                "cors": {
+                  "origin": "*",
+                  "methods": [
+                    "OPTIONS",
+                    "GET"
+                  ],
+                  "headers": [
+                    "Content-Type",
+                    "X-Amz-Date",
+                    "Authorization",
+                    "X-Api-Key",
+                    "X-Amz-Security-Token",
+                    "X-Amz-User-Agent",
+                    "X-Amzn-Trace-Id"
+                  ],
+                  "allowCredentials": "<REDACTED>"
+                },
+                "integration": "AWS_PROXY"
+              }
+            }
+          ],
+          "name": "aws-project-dev-list_parents",
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "python3.9",
+          "vpc": {},
+          "versionLogicalId": "ListUnderscoreparentsLambdaVersionpQFTLS8wI1nFb8Cis8BeMcRHVFLjX7FJrbXkDDE0GmA"
         },
         "add_students_to_parent": {
           "handler": "handler.add_students_to_parent",
@@ -3167,7 +3532,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaVersionFQTS2UcIpMBL4myxQe70tBokcJdjSwychM85t4iF9c"
+          "versionLogicalId": "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaVersionR9RjMF0M1FTnjADGB9u88wtLux5KUVpbAiWgk5vU"
         },
         "add_file_to_student_reports": {
           "handler": "handler.add_file_to_student_reports",
@@ -3203,7 +3568,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaVersion9YLEBtx9h9SE6CizK7q4IF9I8xfK0vWe44qcdzQR4s"
+          "versionLogicalId": "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaVersionYucXLzJto1SAuwpEeuuzpQ6bQIj4Y4W4wopi9Sl2bk"
         },
         "get_studentEnrolledCourses": {
           "handler": "handler.get_studentEnrolledCourses",
@@ -3239,7 +3604,7 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "GetUnderscorestudentEnrolledCoursesLambdaVersionPHCKIMrBIZVrsDPw5RbrYVF4ECBtfeKWWK762Qglm5A"
+          "versionLogicalId": "GetUnderscorestudentEnrolledCoursesLambdaVersioniMiCe0fE937VKhpJEqsoWJl5vkQWTDBfhxa6GxrXzyM"
         },
         "get_teacherEnrolledCourses": {
           "handler": "handler.get_teacherEnrolledCourses",
@@ -3275,23 +3640,59 @@
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "GetUnderscoreteacherEnrolledCoursesLambdaVersion6amqLWTiyfasjRWDh64GOSzJEuc8lpKRe0VMVTgKPKk"
+          "versionLogicalId": "GetUnderscoreteacherEnrolledCoursesLambdaVersioniSumODWzXeYEUYj08l5PqGPL5qkpEbDXSFb2WwNuI"
+        },
+        "get_studentOfParent": {
+          "handler": "handler.get_studentOfParent",
+          "events": [
+            {
+              "http": {
+                "path": "get_studentOfParent",
+                "method": "get",
+                "cors": {
+                  "origin": "*",
+                  "methods": [
+                    "OPTIONS",
+                    "GET"
+                  ],
+                  "headers": [
+                    "Content-Type",
+                    "X-Amz-Date",
+                    "Authorization",
+                    "X-Api-Key",
+                    "X-Amz-Security-Token",
+                    "X-Amz-User-Agent",
+                    "X-Amzn-Trace-Id"
+                  ],
+                  "allowCredentials": "<REDACTED>"
+                },
+                "integration": "AWS_PROXY"
+              }
+            }
+          ],
+          "name": "aws-project-dev-get_studentOfParent",
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "python3.9",
+          "vpc": {},
+          "versionLogicalId": "GetUnderscorestudentOfParentLambdaVersionnHFBHrt2Yjbmcxi4YeP5J17IJ97rxffesEKGkTH1CKU"
         }
       }
     },
-    "serviceRawFile": "org: estabraq\r\nservice: aws-project\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.9\r\n  region: eu-west-1\r\n  iam:\r\n    role:\r\n      statements:\r\n        - Effect: Allow\r\n          Action:\r\n            - \"s3:*\"\r\n            - \"cognito-idp:*\"\r\n            - \"dynamodb:*\"\r\n          Resource: \"*\"\r\n\r\nplugins: \r\n  - serverless-offline\r\n  - serverless-plugin-include-dependencies\r\n  - serverless-plugin-common-excludes\r\n\r\nfunctions:\r\n  create:\r\n    handler: handler.create\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: post\r\n          cors: true\r\n\r\n  get_item:\r\n    handler: handler.get_item\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: get\r\n          cors: true\r\n\r\n  list_items:\r\n    handler: handler.list_items\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: get\r\n          cors: true\r\n\r\n  login:\r\n    handler: handler.login\r\n    events:\r\n      - http:\r\n          path: login\r\n          method: post\r\n          cors: true\r\n\r\n  get_enrolledCourses:\r\n    handler: handler.get_enrolledCourses\r\n    events:\r\n      - http:\r\n          path: get_enrolledCourses\r\n          method: get\r\n          cors: true\r\n\r\n  get_user_details:\r\n    handler: handler.get_user_details\r\n    events:\r\n      - http:\r\n          path: get_userDetails\r\n          method: get\r\n          cors: true\r\n\r\n  delete_course:\r\n    handler: handler.delete_course\r\n    events:\r\n      - http:\r\n          path: courses/delete\r\n          method: post\r\n          cors: true\r\n\r\n  edit_course:\r\n    handler: handler.edit_course\r\n    events:\r\n      - http:\r\n          path: courses/edit\r\n          method: post\r\n          cors: true\r\n\r\n  list_students:\r\n    handler: handler.list_students\r\n    events:\r\n      - http:\r\n          path: students\r\n          method: get\r\n          cors: true\r\n\r\n  add_students_to_parent:\r\n    handler: handler.add_students_to_parent\r\n    events:\r\n      - http:\r\n          path: parents\r\n          method: post\r\n          cors: true\r\n\r\n  add_file_to_student_reports:\r\n    handler: handler.add_file_to_student_reports\r\n    events:\r\n      - http:\r\n          path: reports\r\n          method: post\r\n          cors: true\r\n  \r\n  get_studentEnrolledCourses:\r\n    handler: handler.get_studentEnrolledCourses\r\n    events:\r\n      - http:\r\n          path: get_studentEnrolledCourses\r\n          method: get\r\n          cors: true\r\n  get_teacherEnrolledCourses:\r\n    handler: handler.get_teacherEnrolledCourses\r\n    events:\r\n      - http:\r\n          path: get_teacherEnrolledCourses\r\n          method: get\r\n          cors: true\r\n",
+    "serviceRawFile": "org: estabraq\r\nservice: aws-project\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.9\r\n  region: eu-west-1\r\n  iam:\r\n    role:\r\n      statements:\r\n        - Effect: Allow\r\n          Action:\r\n            - \"s3:*\"\r\n            - \"cognito-idp:*\"\r\n            - \"dynamodb:*\"\r\n          Resource: \"*\"\r\n\r\nplugins: \r\n  - serverless-offline\r\n  - serverless-plugin-include-dependencies\r\n  - serverless-plugin-common-excludes\r\n\r\nfunctions:\r\n  create:\r\n    handler: handler.create\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: post\r\n          cors: true\r\n\r\n  get_item:\r\n    handler: handler.get_item\r\n    events:\r\n      - http:\r\n          path: courses/{CourseID}\r\n          method: get\r\n          cors: true\r\n\r\n  list_items:\r\n    handler: handler.list_items\r\n    events:\r\n      - http:\r\n          path: courses\r\n          method: get\r\n          cors: true\r\n\r\n  login:\r\n    handler: handler.login\r\n    events:\r\n      - http:\r\n          path: login\r\n          method: post\r\n          cors: true\r\n\r\n  get_enrolledCourses:\r\n    handler: handler.get_enrolledCourses\r\n    events:\r\n      - http:\r\n          path: get_enrolledCourses\r\n          method: get\r\n          cors: true\r\n\r\n  get_user_details:\r\n    handler: handler.get_user_details\r\n    events:\r\n      - http:\r\n          path: get_userDetails\r\n          method: get\r\n          cors: true\r\n\r\n  delete_course:\r\n    handler: handler.delete_course\r\n    events:\r\n      - http:\r\n          path: courses/delete\r\n          method: post\r\n          cors: true\r\n\r\n  edit_course:\r\n    handler: handler.edit_course\r\n    events:\r\n      - http:\r\n          path: courses/edit\r\n          method: post\r\n          cors: true\r\n\r\n  list_students:\r\n    handler: handler.list_students\r\n    events:\r\n      - http:\r\n          path: students\r\n          method: get\r\n          cors: true\r\n\r\n  list_parents:\r\n    handler: handler.list_parents\r\n    events:\r\n      - http:\r\n          path: parents\r\n          method: get\r\n          cors: true\r\n\r\n  add_students_to_parent:\r\n    handler: handler.add_students_to_parent\r\n    events:\r\n      - http:\r\n          path: parents\r\n          method: post\r\n          cors: true\r\n\r\n  add_file_to_student_reports:\r\n    handler: handler.add_file_to_student_reports\r\n    events:\r\n      - http:\r\n          path: reports\r\n          method: post\r\n          cors: true\r\n  \r\n  get_studentEnrolledCourses:\r\n    handler: handler.get_studentEnrolledCourses\r\n    events:\r\n      - http:\r\n          path: get_studentEnrolledCourses\r\n          method: get\r\n          cors: true\r\n\r\n  get_teacherEnrolledCourses:\r\n    handler: handler.get_teacherEnrolledCourses\r\n    events:\r\n      - http:\r\n          path: get_teacherEnrolledCourses\r\n          method: get\r\n          cors: true\r\n\r\n  get_studentOfParent:\r\n    handler: handler.get_studentOfParent\r\n    events:\r\n      - http:\r\n          path: get_studentOfParent\r\n          method: get\r\n          cors: true",
     "command": [
       "deploy"
     ],
     "options": {},
     "error": null,
     "params": {},
-    "machineId": "136ad108be2154e0ae9880e46bb60719",
+    "machineId": "cf39a71a5137d687cd715aebab4b226e",
     "accessKeyV2": "<REDACTED>",
     "accessKeyV1": "<REDACTED>",
     "orgId": "603e8ef9-e446-4469-aabc-41b2d7e27a74",
     "orgName": "estabraq",
-    "userId": "pmMHKQg6ZdYrC7M4FX",
+    "userId": "VzvLkQ7M4kpqR2yYXY",
     "dashboard": {
       "isEnabledForService": false,
       "requiredAuthentication": false,
@@ -3301,39 +3702,51 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "userName": "estabraq",
+    "userName": "gusts",
     "subscription": null,
-    "userEmail": "estabraqalta@gmail.com",
+    "userEmail": "yousifelhagar@gmail.com",
     "serviceProviderAwsCredentials": "<REDACTED>",
     "serviceProviderAwsAccountId": "767397751756",
     "versionSf": "4.1.12",
     "serviceProviderAwsCfStackName": "aws-project-dev",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-west-1:767397751756:stack/aws-project-dev/d83fb8e0-3de3-11ef-ae5e-0649844ca977",
     "serviceProviderAwsCfStackCreated": "2024-07-09T11:10:26.737Z",
-    "serviceProviderAwsCfStackUpdated": "2024-07-17T14:38:25.603Z",
+    "serviceProviderAwsCfStackUpdated": "2024-07-17T20:41:30.733Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
+        "OutputKey": "GetUnderscorestudentOfParentLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_studentOfParent:1",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-aws-project-dev-GetUnderscorestudentOfParentLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ListUnderscoreparentsLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-list_parents:7",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-aws-project-dev-ListUnderscoreparentsLambdaFunctionQualifiedArn"
+      },
+      {
         "OutputKey": "GetUnderscorestudentEnrolledCoursesLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_studentEnrolledCourses:8",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_studentEnrolledCourses:14",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-GetUnderscorestudentEnrolledCoursesLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetUnderscoreteacherEnrolledCoursesLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_teacherEnrolledCourses:9",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_teacherEnrolledCourses:15",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-GetUnderscoreteacherEnrolledCoursesLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "DeleteUnderscorecourseLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-delete_course:15",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-delete_course:21",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-DeleteUnderscorecourseLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-add_students_to_parent:2",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-add_students_to_parent:8",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-AddUnderscorestudentsUnderscoretoUnderscoreparentLambdaFunctionQualifiedArn"
       },
@@ -3344,49 +3757,49 @@
       },
       {
         "OutputKey": "GetUnderscoreitemLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_item:40",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_item:46",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-GetUnderscoreitemLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ListUnderscoreitemsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-list_items:38",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-list_items:44",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-ListUnderscoreitemsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "CreateLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-create:21",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-create:27",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-CreateLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetUnderscoreuserUnderscoredetailsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_user_details:14",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_user_details:20",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-GetUnderscoreuserUnderscoredetailsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-add_file_to_student_reports:9",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-add_file_to_student_reports:15",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-AddUnderscorefileUnderscoretoUnderscorestudentUnderscorereportsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ListUnderscorestudentsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-list_students:13",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-list_students:19",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-ListUnderscorestudentsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetUnderscoreenrolledCoursesLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_enrolledCourses:22",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-get_enrolledCourses:28",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-GetUnderscoreenrolledCoursesLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "LoginLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-login:36",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-login:42",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-LoginLambdaFunctionQualifiedArn"
       },
@@ -3398,7 +3811,7 @@
       },
       {
         "OutputKey": "EditUnderscorecourseLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-edit_course:14",
+        "OutputValue": "arn:aws:lambda:eu-west-1:767397751756:function:aws-project-dev-edit_course:20",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-project-dev-EditUnderscorecourseLambdaFunctionQualifiedArn"
       }

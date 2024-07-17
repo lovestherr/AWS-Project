@@ -40,7 +40,7 @@ def create(event, context):
     file_content = base64.b64decode(file_content_base64)
     
     # Define S3 bucket and object name
-    object_name = f'uploads/{course_id}/{course_name}.txt'
+    object_name = content_path;
     
     # Upload file to S3
     success, message = upload_file(file_content, bucket_name, object_name)
@@ -168,8 +168,20 @@ def list_students(event, context):
         'body': json.dumps(items)
     }
 
-    
+def list_parents(event, context):
+    table = dynamodb.Table('parents')
+    result = table.scan()
+    items = result.get('Items', [])
+    return {
+         'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+        'body': json.dumps(items)
+    }
 
+    
 
 def login(event, context):
     # Parse the body from the event
@@ -407,6 +419,26 @@ def add_students_to_parent(event, context):
     student_ids = body['StudentIDs']  # Expecting this to be a list of student IDs
 
     try:
+        # Retrieve the current studentIDs list for the parent
+        parent_response = parents_table.get_item(Key={'parentID': parent_id})
+        
+        if 'Item' in parent_response and 'studentID' in parent_response['Item']:
+            current_student_ids = parent_response['Item']['studentID']
+        else:
+            current_student_ids = []
+
+        # Check for duplicates
+        duplicates = [student_id for student_id in student_ids if student_id in current_student_ids]
+        if duplicates:
+            return {
+                'statusCode': 400,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                'body': json.dumps(f"Duplicate student IDs found: {duplicates}")
+            }
+        
         # Update the parent's studentID list
         response = parents_table.update_item(
             Key={'parentID': parent_id},
@@ -462,12 +494,12 @@ def add_file_to_student_reports(event, context):
     
     student_id = body['StudentID']
     content_path = body['ContentPath']
+
+    # Get file content and decode it from base64
+    file_content_base64 = body['FileContent']
+    file_content = base64.b64decode(file_content_base64)
     
     try:
-        # Read the file content
-        with open(content_path, 'rb') as file:
-            file_content = file.read()
-        
         # Define S3 object name
         object_name = f'reports/{student_id}/{content_path}'
         
@@ -541,6 +573,30 @@ def get_teacherEnrolledCourses(event, context):
     table = dynamodb.Table('teachers')
     teacher_id = event['queryStringParameters']['teacherID']
     result = table.get_item(Key={'teacherID': teacher_id})
+    item = result.get('Item')
+    if item:
+        return {
+            'statusCode': 200,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps(item)
+        }
+    else:
+        return {
+            'statusCode': 404,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps({'error': 'Item not found'})
+        }
+    
+def get_studentOfParent(event, context):
+    table = dynamodb.Table('parents')
+    parent_id = event['queryStringParameters']['parentID']
+    result = table.get_item(Key={'parentID': parent_id})
     item = result.get('Item')
     if item:
         return {

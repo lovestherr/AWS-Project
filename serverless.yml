@@ -93,6 +93,14 @@ functions:
           method: get
           cors: true
 
+  list_parents:
+    handler: handler.list_parents
+    events:
+      - http:
+          path: parents
+          method: get
+          cors: true
+
   add_students_to_parent:
     handler: handler.add_students_to_parent
     events:
@@ -116,10 +124,19 @@ functions:
           path: get_studentEnrolledCourses
           method: get
           cors: true
+
   get_teacherEnrolledCourses:
     handler: handler.get_teacherEnrolledCourses
     events:
       - http:
           path: get_teacherEnrolledCourses
+          method: get
+          cors: true
+
+  get_studentOfParent:
+    handler: handler.get_studentOfParent
+    events:
+      - http:
+          path: get_studentOfParent
           method: get
           cors: true
