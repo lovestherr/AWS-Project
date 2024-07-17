@@ -462,35 +462,56 @@ def add_file_to_student_reports(event, context):
     
     student_id = body['StudentID']
     content_path = body['ContentPath']
-    file_content_base64 = body['FileContent']
     
-    # Decode the base64 file content
-    file_content = base64.b64decode(file_content_base64)
-    
-    # Define S3 object name
-    object_name = f'reports/{student_id}/{content_path}'
-    
-    # Upload the file to S3
-    success, message = upload_file(file_content, bucket_name, object_name)
-    
-    if not success:
+    try:
+        # Read the file content
+        with open(content_path, 'rb') as file:
+            file_content = file.read()
+        
+        # Define S3 object name
+        object_name = f'reports/{student_id}/{content_path}'
+        
+        # Upload the file to S3
+        success, message = upload_file(file_content, bucket_name, object_name)
+        
+        if not success:
+            return {
+                'statusCode': 500,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                'body': json.dumps(f"Failed to upload file: {message}")
+            }
+        
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps('File uploaded successfully')
+        }
+    except FileNotFoundError:
+        return {
+            'statusCode': 404,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            'body': json.dumps('Content file not found')
+        }
+    except Exception as e:
         return {
             'statusCode': 500,
             'headers': {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': 'true'
             },
-            'body': json.dumps(f"Failed to upload file: {message}")
+            'body': json.dumps('Internal server error')
         }
-    
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': 'true'
-        },
-        'body': json.dumps('File uploaded successfully')
-    }
+
+
 
 def get_studentEnrolledCourses(event, context):
     table = dynamodb.Table('students')

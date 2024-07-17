@@ -93,8 +93,8 @@ functions:
           method: get
           cors: true
 
-  add_student_to_parent:
-    handler: handler.add_student_to_parent
+  add_students_to_parent:
+    handler: handler.add_students_to_parent
     events:
       - http:
           path: parents
