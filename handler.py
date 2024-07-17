@@ -491,3 +491,51 @@ def add_file_to_student_reports(event, context):
         },
         'body': json.dumps('File uploaded successfully')
     }
+
+def get_studentEnrolledCourses(event, context):
+    table = dynamodb.Table('students')
+    student_id = event['queryStringParameters']['studentID']
+    result = table.get_item(Key={'studentID': student_id})
+    item = result.get('Item')
+    if item:
+        return {
+            'statusCode': 200,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps(item)
+        }
+    else:
+        return {
+            'statusCode': 404,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps({'error': 'Item not found'})
+        }
+    
+def get_teacherEnrolledCourses(event, context):
+    table = dynamodb.Table('teachers')
+    teacher_id = event['queryStringParameters']['teacherID']
+    result = table.get_item(Key={'teacherID': teacher_id})
+    item = result.get('Item')
+    if item:
+        return {
+            'statusCode': 200,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps(item)
+        }
+    else:
+        return {
+            'statusCode': 404,
+            'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+            'body': json.dumps({'error': 'Item not found'})
+        }
