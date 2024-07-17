@@ -388,7 +388,7 @@ def edit_course(event, context):
         'body': json.dumps('Course updated successfully')
     }
 
-def add_student_to_parent(event, context):
+def add_students_to_parent(event, context):
     if event['httpMethod'] == 'OPTIONS':
         return {
             'statusCode': 200,
@@ -404,15 +404,15 @@ def add_student_to_parent(event, context):
     body = json.loads(event['body'])
     
     parent_id = body['ParentID']
-    student_id = body['StudentID']
+    student_ids = body['StudentIDs']  # Expecting this to be a list of student IDs
 
     try:
         # Update the parent's studentID list
         response = parents_table.update_item(
             Key={'parentID': parent_id},
-            UpdateExpression="SET studentID = list_append(if_not_exists(studentID, :empty_list), :student)",
+            UpdateExpression="SET studentID = list_append(if_not_exists(studentID, :empty_list), :students)",
             ExpressionAttributeValues={
-                ':student': [student_id],
+                ':students': student_ids,
                 ':empty_list': []
             },
             ReturnValues="UPDATED_NEW"
@@ -424,7 +424,7 @@ def add_student_to_parent(event, context):
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': 'true'
             },
-            'body': json.dumps('Student added to parent successfully')
+            'body': json.dumps('Students added to parent successfully')
         }
     except NoCredentialsError:
         return {
